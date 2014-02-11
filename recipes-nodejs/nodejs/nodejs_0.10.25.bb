@@ -3,9 +3,9 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4a31e6c424761191227143b86f58a1ef"
 
-PR = "r0"
+PR = "r1"
 
-DEPENDS = "openssl"
+DEPENDS = "zlib openssl"
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz"
 
@@ -24,7 +24,7 @@ ARCHFLAGS ?= ""
 do_configure () {
   export LD="${CXX}"
 
-  ./configure --prefix=${prefix} --without-snapshot --shared-openssl ${ARCHFLAGS}
+  ./configure --prefix=${prefix} --without-snapshot --shared-zlib --shared-openssl ${ARCHFLAGS}
 }
 
 do_compile () {
@@ -36,7 +36,7 @@ do_install () {
   DESTDIR=${D} oe_runmake install
 }
 
-RDEPENDS_${PN} = "openssl curl python-shell python-datetime python-subprocess python-crypt python-textutils python-netclient "
+RDEPENDS_${PN} = "zlib openssl curl python-shell python-datetime python-subprocess python-crypt python-textutils python-netclient "
 RDEPENDS_${PN}_virtclass-native = "curl-native python-native"
 
 FILES_${PN} += "${libdir}/node/wafadmin ${libdir}/node_modules ${libdir}/dtrace"
