@@ -3,7 +3,7 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Apache-2.0"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=4a31e6c424761191227143b86f58a1ef"
 
-PR = "r1"
+PR = "r2"
 
 DEPENDS = "zlib openssl"
 
@@ -36,7 +36,7 @@ do_install () {
   DESTDIR=${D} oe_runmake install
 }
 
-RDEPENDS_${PN} = "zlib openssl curl python-shell python-datetime python-subprocess python-crypt python-textutils python-netclient "
+RDEPENDS_${PN} = "zlib openssl curl python-compiler python-shell python-datetime python-subprocess python-multiprocessing python-crypt python-textutils python-netclient python-misc"
 RDEPENDS_${PN}_virtclass-native = "curl-native python-native"
 
 FILES_${PN} += "${libdir}/node/wafadmin ${libdir}/node_modules ${libdir}/dtrace"
