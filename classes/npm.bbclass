@@ -11,16 +11,19 @@ PACKAGE_DEBUG_SPLIT_STYLE = "debug-file-directory"
 CCACHE = ""
 
 NPM = "npm"
-ARCHFLAGS_NPM += " --arch=${TARGET_ARCH}"
-EXTRA_NPM ?= ""	
+NPM_ARCHFLAGS += " --arch=${TARGET_ARCH}"
+NPM_FLAGS ?= ""	
 
 oe_runnpm() {
-        bbnote ${NPM} ${ARCHFLAGS_NPM} ${EXTRA_NPM} "$@"
-        LD="${CXX}" ${NPM} ${ARCHFLAGS_NPM} ${EXTRA_NPM} "$@" || die "oe_runnpm failed"
+        bbnote ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@"
+        LD="${CXX}" ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
 }
+
+NPM_INSTALL_FLAGS ?= ""           
+NPM_INSTALL ?= ""
 	
 do_npm_install() {
-	oe_runnpm install
+	oe_runnpm ${NPM_INSTALL_FLAGS} install ${NPM_INSTALL} 
 }
 
 do_npm_shrinkwrap() {
