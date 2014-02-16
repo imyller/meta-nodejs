@@ -10,7 +10,7 @@ BBCLASSEXTEND = "native"
 PACKAGE_DEBUG_SPLIT_STYLE = "debug-file-directory"
 
 NPM = "npm"
-NPM_ARCHFLAGS += " --arch=${TARGET_ARCH}"
+NPM_ARCHFLAGS += "--arch=${TARGET_ARCH}"
 NPM_FLAGS ?= ""	
 CCACHE = ""
 
