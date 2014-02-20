@@ -32,8 +32,10 @@ from   bb.fetch2 import FetchError
 from   bb.fetch2 import logger
 from   bb.fetch2 import runfetchcmd
 
+
 class NPM(FetchMethod):
     """Class to fetch packages via 'npm'"""
+
     def supports(self, url, ud, d):
         """
     	Check to see if a given url can be fetched with npm.
@@ -46,14 +48,14 @@ class NPM(FetchMethod):
     def urldata_init(self, ud, d):
         ud.packagename = urllib.unquote(ud.url.split("://")[1].split(";")[0])
         if 'tag' in ud.parm:
-           ud.pkgdir = ud.packagename + "_" + ud.parm['tag']
-           ud.fetchname = ud.packagename + '@' + ud.parm['tag']
+            ud.pkgdir = ud.packagename + "_" + ud.parm['tag']
+            ud.fetchname = ud.packagename + '@' + ud.parm['tag']
         elif 'version' in ud.parm:
-           ud.pkgdir = ud.packagename + "_" + ud.parm['version']
-           ud.fetchname = ud.packagename + '@' + ud.parm['version']
+            ud.pkgdir = ud.packagename + "_" + ud.parm['version']
+            ud.fetchname = ud.packagename + '@' + ud.parm['version']
         else:
-           ud.pkgdir = ud.packagename
-           ud.fetchname = ud.packagename
+            ud.pkgdir = ud.packagename
+            ud.fetchname = ud.packagename
         ud.npmdir = d.getVar("NPMDIR", True) or (d.getVar("DL_DIR", True) + os.sep + "npm" + os.sep)
         ud.installdir = os.path.join(ud.npmdir, ud.pkgdir)
         ud.localfile = ud.installdir
@@ -67,8 +69,8 @@ class NPM(FetchMethod):
         fetchcmd += d.getVar("NPM_ARCHFLAGS", True) or ""
         fetchcmd += " install " + ud.fetchname
         fetchcmd += " --force"
-        if not os.path.exists(ud.installdir):        
-          bb.utils.mkdirhier(ud.installdir)
+        if not os.path.exists(ud.installdir):
+            bb.utils.mkdirhier(ud.installdir)
         os.chdir(ud.installdir)
         logger.info("npm install " + uri)
         logger.debug(2, "executing " + fetchcmd)
@@ -89,12 +91,13 @@ class NPM(FetchMethod):
             bb.utils.prunedir(destdir)
         else:
             bb.utils.mkdirhier(destdir)
-        runfetchcmd("cp -r " + os.path.join(ud.installdir, "node_modules" + os.sep + ud.packagename) + " " + ud.destdir + os.sep, d)
+        runfetchcmd("cp -r " + os.path.join(ud.installdir,
+                                            "node_modules" + os.sep + ud.packagename) + " " + ud.destdir + os.sep, d)
         if ( subdir == "" ) and ( os.path.exists(os.path.join(ud.installdir, "node_modules" + os.sep + ".bin")) ):
-            runfetchcmd("cp -r " + os.path.join(ud.installdir, "node_modules" + os.sep + ".bin") + " " + ud.destdir + os.sep, d)
+            runfetchcmd(
+                "cp -r " + os.path.join(ud.installdir, "node_modules" + os.sep + ".bin") + " " + ud.destdir + os.sep, d)
         return True
 
     def clean(self, ud, d):
         """ clean the npm directory """
         bb.utils.remove(ud.localpath, True)
-
