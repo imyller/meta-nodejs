@@ -3,7 +3,8 @@ meta-nodejs
 
 OpenEmbedded layer for latest stable Node.js releases.
 
-## Install
+Installation
+============
 
 1. Add `meta-nodejs` layer to `sources/layers.txt`
 
@@ -21,11 +22,8 @@ OpenEmbedded layer for latest stable Node.js releases.
   
 3. Run `oebb.sh update`
 
-
----
-
-
-## Usage
+Usage
+=====
 
 ### Building Node.js package
 
@@ -47,15 +45,12 @@ Add Node.js as a dependency in recipe:
 
 Inherit `npm` or `npm-install` build task classes in your recipe.
 
-
----
-
-
-## Bitbake classes 
+Bitbake classes 
+===============
 
 `meta-nodejs` layer adds two new classes: `npm` and `npm-install`.
 
-### `npm` class
+## `npm` class
 
 `npm` defines the `oe_runnpm` command which will call cross-compiling `npm`.
 
@@ -73,7 +68,7 @@ For example:
       
 You can define extra command line arguments for `npm` calls made by `oe_runnpm()` by appending them to `NPM_FLAGS` variable.
       
-### `npm-install` class
+## `npm-install` class
 
 `npm-install` class inherits `npm` class and adds following build tasks (listed in their run order):
 
@@ -87,7 +82,7 @@ You can disable one or more of these build tasks in the recipe with `do_<tasknam
   do_npm_shrinkwrap[noexec] = "1"
 ```
 
-#### Variables
+### Variables
 
 * You can define extra command line arguments for `npm` command by appending them to `NPM_INSTALL_FLAGS` variable.
 
