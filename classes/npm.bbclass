@@ -18,8 +18,3 @@ oe_runnpm() {
         bbnote ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@"
         LD="${CXX}" ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
 }
-
-python () {
-        import npm
-        bb.fetch2.methods.append( npm.NPM() )
-}
