@@ -21,6 +21,10 @@ OpenEmbedded layer for latest stable Node.js releases.
   
 3. Run `oebb.sh update`
 
+
+---
+
+
 ## Usage
 
 ### Building Node.js package
@@ -42,6 +46,10 @@ Add Node.js as a dependency in recipe:
 ### `npm install` buildable recipes
 
 Inherit `npm` or `npm-install` build task classes in your recipe.
+
+
+---
+
 
 ## Bitbake classes 
 
