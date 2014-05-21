@@ -60,6 +60,8 @@ For example:
     oe_runnpm install     # Installs dependencies defined in package.json from in source directory to node_modules
   }
 ```
+
+### Variables
       
 You can define extra command line arguments for `npm` calls made by `oe_runnpm()` by appending them to `NPM_FLAGS` variable.
       
@@ -76,3 +78,10 @@ You can disable one or more of these build tasks in the recipe with `do_<tasknam
 ```
   do_npm_shrinkwrap[noexec] = "1"
 ```
+
+#### Variables
+
+* You can define extra command line arguments for `npm` command by appending them to `NPM_INSTALL_FLAGS` variable.
+
+* you can define parameters for `npm install` command (such as specific package names) by appending them to `NPM_INSTALL` variable.
+
