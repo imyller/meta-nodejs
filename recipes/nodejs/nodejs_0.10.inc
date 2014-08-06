@@ -14,18 +14,22 @@ S = "${WORKDIR}/node-v${PV}"
 CCACHE = ""
 
 ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)}"
+ARCHFLAGS_arm += " --dest-cpu=arm"
 ARCHFLAGS ?= ""
 
 # Node is way too cool to use proper autotools, so we install two wrappers to forcefully inject proper arch cflags to workaround gypi
 do_configure () {
   export LD="${CXX}"
-
-  ./configure --prefix=${prefix} --without-snapshot --shared-zlib --shared-openssl ${ARCHFLAGS}
+  alias g++="${CXX}"
+  ./configure --prefix=${prefix} --without-snapshot --shared-zlib --shared-openssl --dest-os=linux ${ARCHFLAGS}
+  unalias g++
 }
 
 do_compile () {
   export LD="${CXX}"
+  alias g++="${CXX}"
   make BUILDTYPE=Release
+  unalias g++
 }
 
 do_install () {
