@@ -1,5 +1,7 @@
 inherit npm
 
+B="${S}"
+
 NPM_INSTALL ?= ""
 NPM_INSTALL_FLAGS ?= ""
 	
