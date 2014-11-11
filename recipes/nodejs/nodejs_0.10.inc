@@ -2,13 +2,15 @@ DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Apache-2.0"
 
-PR = "r1"
+PR = "r2"
 
 DEPENDS = "zlib openssl"
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz"
 
 S = "${WORKDIR}/node-v${PV}"
+
+INSANE_SKIP_${PN} += "file-rdeps"
 
 # v8 errors out if you have set CCACHE
 CCACHE = ""
