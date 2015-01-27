@@ -2,7 +2,8 @@ DESCRIPTION = "nodeJS Evented I/O for V8 JavaScript"
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Apache-2.0"
 
-PR = "r2"
+INC_PR = "r3"
+PR = "${INC_PR}.0"
 
 DEPENDS = "zlib openssl"
 
