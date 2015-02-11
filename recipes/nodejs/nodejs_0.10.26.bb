@@ -1,6 +1,0 @@
-require nodejs_0.10.inc
-
-LIC_FILES_CHKSUM = "file://LICENSE;md5=4a31e6c424761191227143b86f58a1ef"
-
-SRC_URI[md5sum] = "15e9018dadc63a2046f61eb13dfd7bd6"
-SRC_URI[sha256sum] = "ef5e4ea6f2689ed7f781355012b942a2347e0299da0804a58de8e6281c4b1daa"
