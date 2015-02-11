@@ -43,16 +43,10 @@ Latest version:
     RDEPENDS_${PN} += "nodejs"
 ```
 
-Specific 0.10.x version:
+Version 0.10 only:
 
 ```
-    RDEPENDS_${PN} += "nodejs (=0.10.36)"
-```
-
-Specific 0.12.x version:
-
-```
-    RDEPENDS_${PN} += "nodejs (=0.12.0)"
+    RDEPENDS_${PN} += "nodejs (< 0.12)"
 ```
 
 ### `npm install` buildable recipes
