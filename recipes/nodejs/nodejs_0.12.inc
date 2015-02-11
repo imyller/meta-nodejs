@@ -5,6 +5,8 @@ LICENSE = "MIT & BSD & Apache-2.0"
 INC_PR = "r1"
 PR = "${INC_PR}.0"
 
+DEFAULT_PREFERENCE = "-1"
+
 DEPENDS = "zlib openssl"
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz"
