@@ -1,6 +1,6 @@
 inherit autotools pkgconfig
 
-DEPENDS +=  "nodejs"
+DEPENDS +=  " nodejs-native"
 
 RDEPENDS_${PN} += " nodejs"
 RDEPENDS_${PN}_virtclass-native += " python-native"
