@@ -35,10 +35,24 @@ Usage
 
 ### Node.js runtime as a dependency
 
-Add Node.js as a dependency in recipe:
+Add Node.js as a dependency in recipe with `RDEPENDS`.
+
+Latest version:
 
 ```
     RDEPENDS_${PN} += "nodejs"
+```
+
+Specific 0.10.x version:
+
+```
+    RDEPENDS_${PN} += "nodejs (=0.10.36)"
+```
+
+Specific 0.12.x version:
+
+```
+    RDEPENDS_${PN} += "nodejs (=0.12.0)"
 ```
 
 ### `npm install` buildable recipes
