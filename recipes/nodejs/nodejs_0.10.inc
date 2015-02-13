@@ -1,4 +1,5 @@
 DESCRIPTION = "Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications."
+
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Apache-2.0"
 
@@ -20,7 +21,6 @@ ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '-
 ARCHFLAGS_arm += " --dest-cpu=arm"
 ARCHFLAGS ?= ""
 
-# Node is way too cool to use proper autotools, so we install two wrappers to forcefully inject proper arch cflags to workaround gypi
 do_configure () {
   export LD="${CXX}"
   alias g++="${CXX}"
@@ -39,8 +39,11 @@ do_install () {
   oe_runmake DESTDIR=${D} install
 }
 
+RCONFLICTS_${PN} = "iojs"
+
 RDEPENDS_${PN} = "zlib openssl curl python-compiler python-shell python-datetime python-subprocess python-multiprocessing python-crypt python-textutils python-netclient python-misc"
+
 RDEPENDS_${PN}_virtclass-native = "curl-native python-native"
+BBCLASSEXTEND = "native"
 
 FILES_${PN} += "${libdir}/node/wafadmin ${libdir}/node_modules ${libdir}/dtrace"
-BBCLASSEXTEND = "native"
