@@ -39,6 +39,8 @@ do_install () {
   oe_runmake DESTDIR=${D} install
 }
 
+PROVIDES = "virtual/node"
+
 RCONFLICTS_${PN} = "iojs"
 
 RDEPENDS_${PN} = "zlib openssl curl python-compiler python-shell python-datetime python-subprocess python-multiprocessing python-crypt python-textutils python-netclient python-misc"
