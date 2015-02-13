@@ -1,7 +1,7 @@
 meta-iojs
 =========
 
-OpenEmbedded/Ångstrom layer for latest stable io.js releases.
+OpenEmbedded layer for latest stable io.js releases.
 
 Installation
 ============
