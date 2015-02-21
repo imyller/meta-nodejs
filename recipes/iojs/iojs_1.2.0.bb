@@ -1,4 +1,4 @@
-require iojs_1.2.inc
+require iojs.inc
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=c3f0b9717b132a6dddcf86fa45498003"
 
