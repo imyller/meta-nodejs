@@ -1,4 +1,4 @@
-inherit iojs-npm
+inherit npm
 
 B="${S}"
 

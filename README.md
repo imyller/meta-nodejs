@@ -45,21 +45,21 @@ Latest version:
 
 ### `npm install` buildable recipes
 
-Inherit `iojs-npm` or `iojs-npm-install` build task classes in your recipe.
+Inherit `npm` or `npm-install` build task classes in your recipe.
 
 Bitbake classes 
 ===============
 
-`meta-iojs` layer adds two new classes: `iojs-npm` and `iojs-npm-install`.
+`meta-iojs` layer adds two new classes: `npm` and `npm-install`.
 
-## `iojs-npm` class
+## `npm` class
 
-`iojs-npm` defines the `oe_runnpm` command which will call cross-compiling `npm`.
+`npm` defines the `oe_runnpm` command which will call cross-compiling `npm`.
 
 For example:
 
 ```
-  inherit iojs-npm
+  inherit npm
       
   do_install() {
     oe_runnpm install     # Installs dependencies defined in package.json 
@@ -70,9 +70,9 @@ For example:
       
 You can define extra command line arguments for `npm` calls made by `oe_runnpm()` by appending them to `NPM_FLAGS` variable.
       
-## `iojs-npm-install` class
+## `npm-install` class
 
-`iojs-npm-install` class inherits `iojs-npm` class and adds following build tasks (listed in their run order):
+`npm-install` class inherits `npm` class and adds following build tasks (listed in their run order):
 
   * `npm_install`: runs `npm install` in source directory
   * `npm_shrinkwrap`: runs `npm shrinkwrap` in source directory
