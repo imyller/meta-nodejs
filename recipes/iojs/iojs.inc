@@ -41,6 +41,8 @@ do_install () {
 
 PROVIDES = "virtual/node"
 
+RPROVIDES_${PN} = "virtual/node"
+
 RCONFLICTS_${PN} = "nodejs"
 
 RDEPENDS_${PN} = "zlib openssl curl python-compiler python-shell python-datetime python-subprocess python-multiprocessing python-crypt python-textutils python-netclient python-misc"
