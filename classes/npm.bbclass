@@ -1,11 +1,6 @@
-inherit autotools pkgconfig
+DEPENDS += " virtual/node-native"
 
-DEPENDS +=  " nodejs-native"
-
-RDEPENDS_${PN} += " nodejs"
-RDEPENDS_${PN}_virtclass-native += " python-native"
-
-BBCLASSEXTEND = "native"
+RDEPENDS_${PN} += " virtual/node"
 
 PACKAGE_DEBUG_SPLIT_STYLE = "debug-file-directory"
 

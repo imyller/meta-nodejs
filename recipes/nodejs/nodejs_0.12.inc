@@ -48,6 +48,7 @@ RCONFLICTS_${PN} = "iojs"
 RDEPENDS_${PN} = "zlib openssl curl python-compiler python-shell python-datetime python-subprocess python-multiprocessing python-crypt python-textutils python-netclient python-misc"
 
 RDEPENDS_${PN}_virtclass-native = "curl-native python-native"
+
 BBCLASSEXTEND = "native"
 
 FILES_${PN} += "${libdir}/node/wafadmin ${libdir}/node_modules ${libdir}/dtrace ${datadir}/systemtap"
