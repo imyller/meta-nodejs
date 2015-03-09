@@ -1,7 +1,7 @@
 meta-iojs
 =========
 
-OpenEmbedded layer for latest stable io.js releases.
+OpenEmbedded layer for latest stable [io.js](https://iojs.org/ "io.js")  releases.
 
 Installation
 ============
