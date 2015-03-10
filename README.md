@@ -1,3 +1,4 @@
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=imyller&url=https://github.com/imyller/meta-iojs&title=meta-iojs&language=&tags=github&category=software)
 meta-iojs
 =========
 
