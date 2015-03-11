@@ -3,7 +3,7 @@ DESCRIPTION = "io.js is a JavaScript platform built on Chrome's V8 runtime."
 HOMEPAGE = "http://iojs.org"
 LICENSE = "MIT & BSD & Apache-2.0"
 
-INC_PR = "r1"
+INC_PR = "r2"
 PR = "${INC_PR}.0"
 
 DEPENDS = "zlib openssl"
@@ -41,7 +41,7 @@ do_install () {
 
 PROVIDES = "virtual/node"
 
-RPROVIDES_${PN} = "virtual/node"
+RPROVIDES_${PN} = "node"
 
 RCONFLICTS_${PN} = "nodejs"
 
