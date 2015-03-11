@@ -39,9 +39,9 @@ do_install () {
   oe_runmake DESTDIR=${D} install
 }
 
-PROVIDES = "node"
+PROVIDES = "virtual/node"
 
-RPROVIDES_${PN} = "node"
+RPROVIDES_${PN} = "virtual/node"
 
 RCONFLICTS_${PN} = "iojs"
 
