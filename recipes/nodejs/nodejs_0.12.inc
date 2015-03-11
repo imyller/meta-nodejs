@@ -41,7 +41,7 @@ do_install () {
 
 PROVIDES = "virtual/node"
 
-RPROVIDES_${PN} = "virtual/node"
+RPROVIDES_${PN} = "node"
 
 RCONFLICTS_${PN} = "iojs"
 
