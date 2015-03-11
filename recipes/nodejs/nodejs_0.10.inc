@@ -3,7 +3,7 @@ DESCRIPTION = "Node.js is a platform built on Chrome's JavaScript runtime for ea
 HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT & BSD & Apache-2.0"
 
-INC_PR = "r4"
+INC_PR = "r5"
 PR = "${INC_PR}.0"
 
 DEPENDS = "zlib openssl"
