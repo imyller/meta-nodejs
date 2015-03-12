@@ -1,6 +1,6 @@
 DEPENDS += " virtual/node-native"
 
-RDEPENDS_${PN} += " virtual/node"
+RDEPENDS_${PN} += " node"
 
 PACKAGE_DEBUG_SPLIT_STYLE = "debug-file-directory"
 
