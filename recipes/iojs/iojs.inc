@@ -1,7 +1,7 @@
 DESCRIPTION = "io.js is a JavaScript platform built on Chrome's V8 runtime."
 HOMEPAGE = "http://iojs.org"
 
-INC_PR = "r3"
+INC_PR = "r4"
 PR = "${INC_PR}.0"
 
 DEPENDS = "openssl"
@@ -26,7 +26,6 @@ def map_dest_cpu(target_arch, d):
     return target_arch
 
 ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)}"
-ARCHFLAGS_arm += " --dest-cpu=arm"
 ARCHFLAGS ?= ""
 
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
