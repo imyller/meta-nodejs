@@ -4,6 +4,15 @@ meta-nodejs
 
 OpenEmbedded layer for latest stable Node.js releases.
 
+Packages included
+=================
+
+* `nodejs`
+* `nodejs-npm`
+* `nodejs-dtrace`
+* `nodejs-systemtap`
+* `nodejs-wafadmin` (only with Node.js 0.8.x)
+
 Installation
 ============
 
