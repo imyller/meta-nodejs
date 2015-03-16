@@ -4,6 +4,14 @@ meta-iojs
 
 OpenEmbedded layer for latest stable [io.js](https://iojs.org/ "io.js")  releases.
 
+Packages included
+=================
+
+ * `iojs`
+ * `iojs-npm`
+ * `iojs-dtrace`
+ * `iojs-systemtap`
+
 Installation
 ============
 
