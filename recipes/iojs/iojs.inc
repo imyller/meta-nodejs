@@ -5,6 +5,7 @@ INC_PR = "r4"
 PR = "${INC_PR}.0"
 
 DEPENDS = "openssl"
+DEPENDS_class-native += " openssl-native"
 
 PROVIDES = "virtual/node"
 RPROVIDES_${PN} = "node"
