@@ -1,11 +1,17 @@
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=imyller&url=https://github.com/imyller/meta-nodejs&title=meta-nodejs&language=&tags=github&category=software)
 meta-nodejs
 ===========
+OpenEmbedded layer for latest stable [Node.js](https://nodejs.org/ "Node.js") releases. 
 
-OpenEmbedded layer for latest stable Node.js releases.
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=imyller&url=https://github.com/imyller/meta-nodejs&title=meta-nodejs&language=&tags=github&category=software)
 
-Packages included
-=================
+## Node.js versions
+
+Latest stable release of:
+* `0.12`
+* `0.10`
+* `0.8`
+
+## Packages
 
 * `nodejs`
 * `nodejs-npm`
