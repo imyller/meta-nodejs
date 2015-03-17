@@ -1,11 +1,19 @@
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=imyller&url=https://github.com/imyller/meta-iojs&title=meta-iojs&language=&tags=github&category=software)
 meta-iojs
 =========
 
 OpenEmbedded layer for latest stable [io.js](https://iojs.org/ "io.js")  releases.
 
-Packages included
-=================
+[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=imyller&url=https://github.com/imyller/meta-iojs&title=meta-iojs&language=&tags=github&category=software)
+
+## io.js versions
+
+Latest stable release of:
+* `1.2`
+* `1.3`
+* `1.4`
+* `1.5`
+
+## Packages
 
  * `iojs`
  * `iojs-npm`
