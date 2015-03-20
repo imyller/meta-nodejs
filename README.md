@@ -12,6 +12,7 @@ Latest stable release of:
 * `1.3`
 * `1.4`
 * `1.5`
+* `1.6`
 
 ## Packages
 
