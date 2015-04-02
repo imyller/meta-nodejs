@@ -11,7 +11,20 @@ NPM_FLAGS ?= ""
 CCACHE = ""
 
 oe_runnpm() {
+
         bbnote ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@"
-	bbnote NPM cache directory: ${NPM_CACHE_DIR}
-        LD="${CXX}" NPM_CONFIG_CACHE="${NPM_CACHE_DIR}" ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
+
+	export NPM_CONFIG_CACHE="${NPM_CACHE_DIR}"
+	        
+	[ -n "${http_proxy}" ] && export NPM_CONFIG_PROXY="${http_proxy}"
+	[ -n "${https_proxy}" ] && export NPM_CONFIG_HTTPS_PROXY="${https_proxy}"
+	[ -n "${HTTP_PROXY}" ] && export NPM_CONFIG_PROXY="${HTTP_PROXY}"
+	[ -n "${HTTPS_PROXY}" ] && export NPM_CONFIG_HTTPS_PROXY="${HTTPS_PROXY}"
+		
+        bbnote NPM cache directory: ${NPM_CONFIG_CACHE}
+	bbnote NPM HTTP proxy: ${NPM_CONFIG_PROXY}
+	bbnote NPM HTTPS proxy: ${NPM_CONFIG_HTTPS_PROXY}
+
+        LD="${CXX}" ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
+
 }
