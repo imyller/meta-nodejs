@@ -86,7 +86,8 @@ For example:
 
 ### Variables
       
-You can define extra command line arguments for `npm` calls made by `oe_runnpm()` by appending them to `NPM_FLAGS` variable.
+ * `NPM_FLAGS`: Extra command line arguments for `npm` calls made by `oe_runnpm()`
+ * `NPM_ARCH`: Override npm target architecture (defaults to `TARGET_ARCH`)
       
 ## `npm-install` class
 
