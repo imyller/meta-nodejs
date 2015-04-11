@@ -6,9 +6,10 @@ PACKAGE_DEBUG_SPLIT_STYLE = "debug-file-directory"
 
 NPM = "npm"
 NPM_CACHE_DIR = "${WORKDIR}/npm_cache"
+
 NPM_ARCH ?= "${TARGET_ARCH}"
-NPM_ARCHFLAGS += " --arch=${NPM_ARCH} --target_arch=${NPM_ARCH}"
 NPM_FLAGS ?= ""	
+
 CCACHE = ""
 
 oe_runnpm() {
@@ -24,9 +25,9 @@ oe_runnpm() {
 	bbnote NPM cache directory: ${NPM_CONFIG_CACHE}
 	bbnote NPM HTTP proxy: ${NPM_CONFIG_PROXY}
 	bbnote NPM HTTPS proxy: ${NPM_CONFIG_HTTPS_PROXY}
-	
-	bbnote ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@"
+			
+	bbnote ${NPM} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@"
 
-	LD="${CXX}" ${NPM} ${NPM_ARCHFLAGS} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
+	LD="${CXX}" ${NPM} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
 
 }
