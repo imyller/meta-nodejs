@@ -72,8 +72,11 @@ Bitbake classes
 
 ## `npm` class
 
-`npm` defines the `oe_runnpm` command which will call cross-compiling `npm`.
-
+`npm` class defines following functions:
+ 
+  * `oe_runnpm`: call cross-compiling `npm`
+  * `oe_runnpm_native`: call native-compiling `npm`
+  
 For example:
 
 ```
