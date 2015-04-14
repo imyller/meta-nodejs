@@ -24,17 +24,17 @@ Installation
 
 1. Add `meta-nodejs` layer to `sources/layers.txt`
 
-    ```
-      meta-nodejs,git://github.com/imyller/meta-nodejs.git,master,HEAD
-    ```
-    
+	```
+	  meta-nodejs,git://github.com/imyller/meta-nodejs.git,master,HEAD
+	```
+	
 2. Add `meta-nodejs` layer to `EXTRALAYERS` in `conf/bblayers.conf`
 
-    ```
-        EXTRALAYERS +=" \
-            ${TOPDIR}/sources/meta-nodejs \
-        "
-    ```
+	```
+		EXTRALAYERS +=" \
+			${TOPDIR}/sources/meta-nodejs \
+		"
+	```
   
 3. Run `oebb.sh update`
 
@@ -46,7 +46,7 @@ Usage
 1. To build latest stable Node.js package:
 
 ```
-    bitbake nodejs
+	bitbake nodejs
 ```
 
 ### Node.js runtime as a dependency
@@ -56,13 +56,7 @@ Add Node.js as a dependency in recipe with `RDEPENDS`.
 Latest version:
 
 ```
-    RDEPENDS_${PN} += "nodejs"
-```
-
-Version 0.10 only:
-
-```
-    RDEPENDS_${PN} += "nodejs (< 0.12)"
+	RDEPENDS_${PN} += "nodejs"
 ```
 
 ### `npm install` buildable recipes
@@ -76,23 +70,23 @@ Bitbake classes
 
 ## `npm` class
 
-`npm` defines the `oe_runnpm` command which will call cross-compiling `npm`.
+`npm` defines following functions: `oe_runnpm` command which will call cross-compiling `npm`.
 
 For example:
 
 ```
   inherit npm
-      
+
   do_install() {
-    oe_runnpm install     # Installs dependencies defined in package.json from in source directory to node_modules
+	oe_runnpm install     # Installs dependencies defined in package.json from in source directory to node_modules
   }
 ```
 
 ### Variables
-      
+
  * `NPM_FLAGS`: Extra command line arguments for `npm` calls made by `oe_runnpm()`
  * `NPM_ARCH`: Override npm target architecture (defaults to `TARGET_ARCH`)
-      
+
 ## `npm-install` class
 
 `npm-install` class inherits `npm` class and adds following build tasks (listed in their run order):
@@ -109,7 +103,5 @@ You can disable one or more of these build tasks in the recipe with `do_<tasknam
 
 ### Variables
 
-* You can define extra command line arguments for `npm` command by appending them to `NPM_INSTALL_FLAGS` variable.
-
-* you can define parameters for `npm install` command (such as specific package names) by appending them to `NPM_INSTALL` variable.
-
+ * `NPM_INSTALL_FLAGS`: Extra command line arguments for `npm` calls made in `npm_install` task 
+ * `NPM_INSTALL`: Parameters for `npm install` command (such as specific package names)
