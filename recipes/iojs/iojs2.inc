@@ -1,7 +1,7 @@
 DESCRIPTION = "io.js is a JavaScript platform built on Chrome's V8 runtime."
 HOMEPAGE = "http://iojs.org"
 
-INC_PR = "r1"
+INC_PR = "r2"
 PR = "${INC_PR}.0"
 
 PROVIDES = "virtual/node"
@@ -33,7 +33,6 @@ do_configure () {
   alias g++="${CXX}"
   GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
   ./configure 	--prefix="${prefix}" \
-		--without-snapshot \
 		--dest-cpu="${@map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 	 	--dest-os=linux ${ARCHFLAGS}
   unalias g++
