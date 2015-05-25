@@ -16,6 +16,7 @@ Latest stable release of:
 * `1.7`
 * `1.8`
 * `2.0`
+* `2.1`
 
 ## Packages
 
