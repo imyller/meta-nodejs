@@ -59,7 +59,7 @@ PREFERRED_PROVIDER_node = "iojs"
 PREFERRED_PROVIDER_node-native = "iojs-native"
 ```
 
-After than you you can use package name `node` in your recipe `DEPENDS` and `RDEPENDS`.
+With preferred provider selected you can use package name `node` in your recipe `DEPENDS` and `RDEPENDS`.
 
 Usage
 =====
@@ -81,7 +81,15 @@ or if you want to build io.js:
 	bitbake iojs
 ```
 
-### Node as package dependency
+#### Resolve build conflicts between `nodejs` and `iojs`
+
+If you have built both `nodejs` and `iojs` to same root fs, you can resolve the conflict by running:
+
+```shell
+	bitbake iojs nodejs iojs-native nodejs-native -c cleanall -f
+```
+
+### Node as a dependency
 
 Add Node.js or io.js as a dependency in recipe with `RDEPENDS` (for runtime) or `DEPENDS` (for build):
 
@@ -102,7 +110,7 @@ or
 
 ### `npm install` buildable recipes
 
-Inherit `npm` or `npm-install` build task classes in your recipe.
+Inherit `npm-install` build task classes in your recipe. This will automatically add `node` to your `RDEPENDS_${PN}` and `DEPENDS`.
 
 Bitbake classes 
 ===============
