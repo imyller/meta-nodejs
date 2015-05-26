@@ -12,15 +12,17 @@ Latest stable releases of Node.js:
  * `0.8`
 
 Latest stable releases of io.js:
- * `1.2`
- * `1.3`
- * `1.4`
- * `1.5`
- * `1.6`
- * `1.7`
- * `1.8`
+ * `2.1`
  * `2.0`
- * `2.1`
+ * `1.8`
+ * `1.7`
+ * `1.6`
+ * `1.5`
+ * `1.4`
+ * `1.3`
+ * `1.2`
+ * `1.1`
+ * `1.0`
 
 ## Available Packages
 
@@ -28,7 +30,7 @@ Latest stable releases of io.js:
  * `nodejs-npm`
  * `nodejs-dtrace`
  * `nodejs-systemtap`
- * `nodejs-wafadmin` (only with Node.js 0.8.x)
+ * `nodejs-wafadmin` (only with Node.js `0.8`)
  * `iojs`
  * `iojs-npm`
  * `iojs-dtrace`
