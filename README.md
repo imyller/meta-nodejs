@@ -1,3 +1,13 @@
+---
+# Notice of Deprecation:
+The io.js project has voted to join the upcoming Node Foundation. The io.js and Node.js projects will merge. 
+
+**For consistency, meta-iojs layer is deprecated and recipes will be migrated to [meta-nodejs](https://github.com/imyller/meta-nodejs)**
+
+**Please update your configuration as soon as possible.**
+
+---
+
 meta-iojs
 =========
 
