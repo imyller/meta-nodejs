@@ -29,7 +29,6 @@ Latest stable releases of io.js:
  * `nodejs-dtrace`
  * `nodejs-systemtap`
  * `nodejs-wafadmin` (only with Node.js 0.8.x)
- 
  * `iojs`
  * `iojs-npm`
  * `iojs-dtrace`
