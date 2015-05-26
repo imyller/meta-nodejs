@@ -12,7 +12,7 @@ Latest stable releases of Node.js:
  * `0.8`
 
 Latest stable releases of io.js:
- * `2.1`
+ * `2.1`
  * `2.0`
  * `1.8`
  * `1.7`
