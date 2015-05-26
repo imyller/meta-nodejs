@@ -110,7 +110,7 @@ or
 
 ### `npm install` buildable recipes
 
-Inherit `npm-install` build task classes in your recipe. This will automatically add `node` to your `RDEPENDS_${PN}` and `DEPENDS`.
+Inherit `npm-install` build task classes in your recipe. This will automatically add `node` to your `RDEPENDS_${PN}` and `node-native` to `DEPENDS`.
 
 Bitbake classes 
 ===============
