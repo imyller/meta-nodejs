@@ -1,4 +1,4 @@
-DEPENDS += " virtual/node-native"
+DEPENDS += " node-native"
 
 RDEPENDS_${PN} += " node"
 

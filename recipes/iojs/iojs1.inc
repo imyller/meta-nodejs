@@ -1,13 +1,13 @@
 DESCRIPTION = "io.js is a JavaScript platform built on Chrome's V8 runtime."
 HOMEPAGE = "http://iojs.org"
 
-INC_PR = "r4"
+INC_PR = "r5"
 PR = "${INC_PR}.0"
 
 DEPENDS = "openssl"
 DEPENDS_class-native += " openssl-native"
 
-PROVIDES = "virtual/node"
+PROVIDES = "node"
 RPROVIDES_${PN} = "node"
 RCONFLICTS_${PN} = "nodejs"
 

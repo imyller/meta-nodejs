@@ -8,7 +8,7 @@ PR = "${INC_PR}.0"
 DEPENDS = "openssl"
 DEPENDS_class-native += " openssl-native"
 
-PROVIDES = "virtual/node"
+PROVIDES = "node"
 RPROVIDES_${PN} = "node"
 RCONFLICTS_${PN} = "iojs"
 
