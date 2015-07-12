@@ -1,0 +1,8 @@
+require iojs2.inc
+
+LICENSE = "MIT & BSD & Artistic-2.0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=0198b9c2e097efc6f853718558c550db"
+
+SRC_URI[md5sum] = "52ca44f86691a9039ad56f81a9df82e0"
+SRC_URI[sha256sum] = "18aeb8ad79b549f45caf6e4baa421046a0cd8f60102ac0986f19b19174962cc1"
+
