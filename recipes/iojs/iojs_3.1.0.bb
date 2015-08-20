@@ -1,0 +1,7 @@
+require iojs3.inc
+
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=a6c54279cbd792731a692d52c6fb9833"
+
+SRC_URI[md5sum] = "56caf1caefe5daf62fbec58148d750b8"
+SRC_URI[sha256sum] = "471c6faa28d53c0290ecbf9358f6416fca4786aad079e23c44a88cc7f42d1097"
