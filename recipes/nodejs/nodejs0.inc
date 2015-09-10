@@ -3,7 +3,7 @@ HOMEPAGE = "http://nodejs.org"
 
 INC_PR ?= "r0"
 
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 DEPENDS = "openssl"
 DEPENDS_class-native += " openssl-native"
