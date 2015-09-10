@@ -6,12 +6,17 @@ OpenEmbedded layer for latest stable [Node.js](https://nodejs.org/ "Node.js") an
 
 ## Node versions
 
-Latest stable releases of Node.js:
+Stable releases of Node.js:
+ * `4.0`
  * `0.12`
  * `0.10`
  * `0.8`
 
-Latest stable releases of io.js:
+Stable releases of io.js:
+ * `3.3`
+ * `3.2`
+ * `3.1`
+ * `3.0`
  * `2.5`
  * `2.4`
  * `2.3`
@@ -61,8 +66,8 @@ Installation
 
 It is recommended that you define the preferred provider of Node engine in your `local.conf`. For example:
 ```bitbake
-PREFERRED_PROVIDER_node = "iojs"
-PREFERRED_PROVIDER_node-native = "iojs-native"
+PREFERRED_PROVIDER_node = "nodejs"
+PREFERRED_PROVIDER_node-native = "nodejs-native"
 ```
 
 With preferred provider selected you can use package name `node` in your recipe `DEPENDS` and `RDEPENDS`.
