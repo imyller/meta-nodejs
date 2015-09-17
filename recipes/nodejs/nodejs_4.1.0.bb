@@ -1,0 +1,9 @@
+require nodejs4.inc
+
+INC_PR = "r1"
+
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=b51c7609f2f30be5f02b26b0f1e56e55"
+
+SRC_URI[src.md5sum] = "769773c26e64323f4bc862072c806a30"
+SRC_URI[src.sha256sum] = "453005f64ee529f7dcf1237eb27ee2fa2415c49f5c9e7463e8b71fba61c5b408"
