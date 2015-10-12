@@ -7,6 +7,7 @@ OpenEmbedded layer for latest stable [Node.js](https://nodejs.org/ "Node.js") an
 ## Node versions
 
 Stable releases of Node.js:
+ * `4.2` (LTS)
  * `4.1`
  * `4.0`
  * `0.12`
