@@ -19,16 +19,9 @@ oe_runnpm() {
 
 	export NPM_CONFIG_CACHE="${NPM_CACHE_DIR}"
 
-	[ -n "${http_proxy}" ] && export NPM_CONFIG_PROXY="${http_proxy}"
-	[ -n "${https_proxy}" ] && export NPM_CONFIG_HTTPS_PROXY="${https_proxy}"
-	[ -n "${HTTP_PROXY}" ] && export NPM_CONFIG_PROXY="${HTTP_PROXY}"
-	[ -n "${HTTPS_PROXY}" ] && export NPM_CONFIG_HTTPS_PROXY="${HTTPS_PROXY}"
-
 	bbnote NPM target architecture: ${NPM_ARCH}
 	bbnote NPM cache directory: ${NPM_CONFIG_CACHE}
 	bbnote NPM registry: ${NPM_REGISTRY}
-	bbnote NPM HTTP proxy: ${NPM_CONFIG_PROXY}
-	bbnote NPM HTTPS proxy: ${NPM_CONFIG_HTTPS_PROXY}
 
 	bbnote ${NPM} --registry=${NPM_REGISTRY} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@"
 
@@ -50,16 +43,9 @@ oe_runnpm_native() {
 
 	export NPM_CONFIG_CACHE="${NPM_CACHE_DIR_NATIVE}"
 
-	[ -n "${http_proxy}" ] && export NPM_CONFIG_PROXY="${http_proxy}"
-	[ -n "${https_proxy}" ] && export NPM_CONFIG_HTTPS_PROXY="${https_proxy}"
-	[ -n "${HTTP_PROXY}" ] && export NPM_CONFIG_PROXY="${HTTP_PROXY}"
-	[ -n "${HTTPS_PROXY}" ] && export NPM_CONFIG_HTTPS_PROXY="${HTTPS_PROXY}"
-
 	bbnote NPM native architecture: ${NPM_ARCH_NATIVE}
 	bbnote NPM cache directory: ${NPM_CONFIG_CACHE}
 	bbnote NPM registry: ${NPM_REGISTRY}
-	bbnote NPM HTTP proxy: ${NPM_CONFIG_PROXY}
-	bbnote NPM HTTPS proxy: ${NPM_CONFIG_HTTPS_PROXY}
 
 	bbnote ${NPM_NATIVE} --arch=${NPM_ARCH_NATIVE} --target_arch=${NPM_ARCH_NATIVE} ${NPM_FLAGS_NATIVE} "$@"
 
