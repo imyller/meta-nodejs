@@ -46,7 +46,7 @@ do_configure () {
 do_compile () {
   export LD="${CXX}"
   alias g++="${CXX}"
-  make -j ${@oe.utils.cpu_count()} BUILDTYPE=Release
+  make ${PARALLEL_MAKE} BUILDTYPE=Release
   unalias g++
 }
 
