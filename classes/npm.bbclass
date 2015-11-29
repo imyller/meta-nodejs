@@ -30,6 +30,8 @@ oe_runnpm() {
 
 	bbnote ${NPM} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@"
 
+	export JOBS=${@oe.utils.cpu_count()}
+
 	LD="${NPM_LD}" ${NPM} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
 
 }
@@ -57,6 +59,8 @@ oe_runnpm_native() {
 	bbnote NPM HTTPS proxy: ${NPM_CONFIG_HTTPS_PROXY}
 
 	bbnote ${NPM_NATIVE} --arch=${NPM_ARCH_NATIVE} --target_arch=${NPM_ARCH_NATIVE} ${NPM_FLAGS_NATIVE} "$@"
+
+	export JOBS=${@oe.utils.cpu_count()}
 
 	LD="${NPM_LD_NATIVE}" ${NPM_NATIVE} --arch=${NPM_ARCH_NATIVE} --target_arch=${NPM_ARCH_NATIVE} ${NPM_FLAGS_NATIVE} "$@" || die "oe_runnpm_native failed"
 
