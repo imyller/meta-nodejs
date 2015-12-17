@@ -11,6 +11,7 @@ NPM_CACHE_DIR = "${WORKDIR}/npm_cache"
 NPM_ARCH ?= "${TARGET_ARCH}"
 NPM_LD ?= "${CXX}"
 NPM_FLAGS ?= ""
+NPM_REGISTRY ?= "https://registry.npmjs.org/"
 
 # Target npm
 
@@ -25,14 +26,15 @@ oe_runnpm() {
 
 	bbnote NPM target architecture: ${NPM_ARCH}
 	bbnote NPM cache directory: ${NPM_CONFIG_CACHE}
+	bbnote NPM registry: ${NPM_REGISTRY}
 	bbnote NPM HTTP proxy: ${NPM_CONFIG_PROXY}
 	bbnote NPM HTTPS proxy: ${NPM_CONFIG_HTTPS_PROXY}
 
-	bbnote ${NPM} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@"
+	bbnote ${NPM} --registry=${NPM_REGISTRY} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@"
 
 	export JOBS=${@oe.utils.cpu_count()}
 
-	LD="${NPM_LD}" ${NPM} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
+	LD="${NPM_LD}" ${NPM} --registry=${NPM_REGISTRY} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
 
 }
 
@@ -55,6 +57,7 @@ oe_runnpm_native() {
 
 	bbnote NPM native architecture: ${NPM_ARCH_NATIVE}
 	bbnote NPM cache directory: ${NPM_CONFIG_CACHE}
+	bbnote NPM registry: ${NPM_REGISTRY}
 	bbnote NPM HTTP proxy: ${NPM_CONFIG_PROXY}
 	bbnote NPM HTTPS proxy: ${NPM_CONFIG_HTTPS_PROXY}
 
