@@ -23,10 +23,15 @@ def map_dest_cpu(target_arch, d):
     elif re.match('arm64$', target_arch): return 'arm'
     return target_arch
 
-ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)}"
+ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)} \
+                 ${@bb.utils.contains('TUNE_FEATURES', 'neon', '--with-arm-fpu=neon', \
+                    bb.utils.contains('TUNE_FEATURES', 'vfpv3d16', '--with-arm-fpu=vfpv3-d16', \
+                    bb.utils.contains('TUNE_FEATURES', 'vfpv3', '--with-arm-fpu=vfpv3', \
+                    '--with-arm-fpu=vfp', d), d), d)}"
 ARCHFLAGS ?= ""
 
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
+
 
 do_configure () {
   export LD="${CXX}"
@@ -34,7 +39,7 @@ do_configure () {
   GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
   ./configure 	--prefix="${prefix}" \
 		--dest-cpu="${@map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
-	 	--dest-os=linux ${ARCHFLAGS}
+		--dest-os=linux ${ARCHFLAGS}
   unalias g++
 }
 
