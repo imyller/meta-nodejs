@@ -173,3 +173,44 @@ You can disable one or more of these build tasks in the recipe with `do_<tasknam
 
  * `NPM_INSTALL_FLAGS`: Extra command line arguments for `npm` calls made in `npm_install` task 
  * `NPM_INSTALL`: Parameters for `npm install` command (such as specific package names)
+
+## `npm-global-install` class
+
+`npm-global-install` class inherits `npm` class and installs the selected package globally.
+This is done in the `do_install` task of the class.
+
+### Variables
+
+* `NPM_INSTALL_FLAGS`: Extra command line arguments for `npm` calls made in `do_install` and `do_configure` task
+
+## `grunt` class
+
+`grunt` can build a package that is based on grunt.
+First it will do an `npm install` during the `do_configure` task to make sure all
+dependencies are available.
+Then it runs `grunt` with the default target during the `do_compile` task.
+
+It defines the following functions:
+
+  * `oe_rungrunt`: call `grunt`
+
+### Variables
+
+* `NPM_INSTALL_FLAGS`: Extra command line arguments for `npm` calls made in `do_configure` task
+* `GRUNT_TARGET`: The grunt target to run. (default: "")
+
+## `gulp` class
+
+`gulp` can build a package that is based on gulp.
+First it will do an `npm install` during the `do_configure` task to make sure all
+dependencies are available.
+Then it runs `gulp` with the default target during the `do_compile` task.
+
+It defines the following functions:
+
+  * `oe_rungulp`: call `gulp`
+
+### Variables
+
+* `NPM_INSTALL_FLAGS`: Extra command line arguments for `npm` calls made in `do_configure` task
+* `GULP_TARGET`: The gulp target to run. (default: "")
