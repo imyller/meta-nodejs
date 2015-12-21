@@ -1,7 +1,7 @@
 DESCRIPTION = "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine"
 HOMEPAGE = "http://nodejs.org"
 
-INC_PR = "r0"
+INC_PR = "r1"
 PR = "${INC_PR}.0"
 
 PROVIDES = "node"
@@ -39,7 +39,8 @@ do_configure () {
   GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
   ./configure 	--prefix="${prefix}" \
 		--dest-cpu="${@map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
-		--dest-os=linux ${ARCHFLAGS}
+		--dest-os=linux ${ARCHFLAGS} \
+		--without-snapshot
   unalias g++
 }
 
