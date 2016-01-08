@@ -32,6 +32,8 @@ ARCHFLAGS ?= ""
 
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 
+PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
+PACKAGECONFIG[openssl] = "--shared-openssl,,openssl"
 
 do_configure () {
   export LD="${CXX}"
@@ -40,7 +42,8 @@ do_configure () {
   ./configure 	--prefix="${prefix}" \
 		--dest-cpu="${@map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 		--dest-os=linux ${ARCHFLAGS} \
-		--without-snapshot
+		--without-snapshot \
+		${EXTRA_OECONF}
   unalias g++
 }
 
