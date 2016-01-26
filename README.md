@@ -7,6 +7,7 @@ OpenEmbedded layer for latest stable [Node.js](https://nodejs.org/ "Node.js") an
 ## Node versions
 
 Stable releases of Node.js:
+ * `5.5`
  * `5.4`
  * `5.3`
  * `5.2`
