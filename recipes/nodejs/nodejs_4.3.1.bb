@@ -1,5 +1,6 @@
 require nodejs_4.inc
 require nodejs_iojs.inc
+require nodejs_lts.inc
 
 INC_PR = "r3"
 
