@@ -1,4 +1,6 @@
-require nodejs_0.10.inc
+require nodejs_0.inc
+
+INC_PR = "r7"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=e804bf1e856481415099460bc54d9316"
 
