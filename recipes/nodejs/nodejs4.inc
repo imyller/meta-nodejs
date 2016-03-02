@@ -2,11 +2,10 @@ DESCRIPTION = "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript e
 HOMEPAGE = "http://nodejs.org"
 
 INC_PR = "r1"
-PR = "${INC_PR}.0"
+PR = "${INC_PR}.1"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
-RCONFLICTS_${PN} = "iojs"
 
 SRC_URI = "https://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz;name=src"
 
