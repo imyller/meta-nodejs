@@ -1,8 +1,0 @@
-require iojs1.inc
-
-LICENSE = "MIT & BSD & Artistic-2.0"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=0198b9c2e097efc6f853718558c550db"
-
-SRC_URI[md5sum] = "c2bc03c36c80dccba2851e64dd96c719"
-SRC_URI[sha256sum] = "9613618c8675323801cf1fa9fe3778149e6e42ae2753ddb16a663140fdc9cd56"
-

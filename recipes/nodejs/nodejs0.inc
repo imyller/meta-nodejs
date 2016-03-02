@@ -3,14 +3,13 @@ HOMEPAGE = "http://nodejs.org"
 
 INC_PR ?= "r0"
 
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 DEPENDS = "openssl"
 DEPENDS_class-native += " openssl-native"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
-RCONFLICTS_${PN} = "iojs"
 
 SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz"
 
