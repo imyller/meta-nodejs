@@ -59,13 +59,11 @@ Stable releases of io.js:
 Installation
 ============
 
-1. Add `meta-nodejs` layer to `sources/layers.txt`
+Layer installation varies depending on your OpenEmbedded distribution. These instructions are generic.
 
-	```
-	  meta-nodejs,git://github.com/imyller/meta-nodejs.git,master,HEAD
-	```
+1. Fetch `meta-nodejs` layer from `https://github.com/imyller/meta-nodejs.git`
 	
-2. Add `meta-nodejs` layer to `EXTRALAYERS` in `conf/bblayers.conf`
+2. Add `meta-nodejs` layer to `EXTRALAYERS` in `conf/bblayers.conf`. For example:
 
 	```bitbake
 		EXTRALAYERS +=" \
@@ -75,7 +73,8 @@ Installation
   
 ### Setting the preferred Node provider
 
-It is recommended that you define the preferred provider of Node engine in your `local.conf`. For example:
+meta-nodejs ships with Node.js and io.js recipes, which both provide `node` binary and thus conflict with each other. It is recommended that you define the preferred provider of Node engine in your `local.conf`. For example:
+
 ```bitbake
 PREFERRED_PROVIDER_node = "nodejs"
 PREFERRED_PROVIDER_node-native = "nodejs-native"
