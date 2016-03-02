@@ -1,4 +1,6 @@
-require nodejs_0.12.inc
+require nodejs_0.inc
+
+INC_PR = "r4"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=14115ff11211df04b031ec7d40b6d31b"
 

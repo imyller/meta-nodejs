@@ -1,17 +1,15 @@
-DESCRIPTION = "Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications."
+DESCRIPTION = "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine"
 HOMEPAGE = "http://nodejs.org"
 
-INC_PR ?= "r0"
+LICENSE = "MIT"
 
+INC_PR = "r1"
 PR = "${INC_PR}.2"
-
-DEPENDS = "openssl"
-DEPENDS_class-native += " openssl-native"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
 
-SRC_URI = "http://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz"
+SRC_URI = "https://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz;name=src"
 
 S = "${WORKDIR}/node-v${PV}"
 
@@ -26,19 +24,27 @@ def map_dest_cpu(target_arch, d):
     elif re.match('arm64$', target_arch): return 'arm'
     return target_arch
 
-ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)}"
+ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)} \
+                 ${@bb.utils.contains('TUNE_FEATURES', 'neon', '--with-arm-fpu=neon', \
+                    bb.utils.contains('TUNE_FEATURES', 'vfpv3d16', '--with-arm-fpu=vfpv3-d16', \
+                    bb.utils.contains('TUNE_FEATURES', 'vfpv3', '--with-arm-fpu=vfpv3', \
+                    '--with-arm-fpu=vfp', d), d), d)}"
 ARCHFLAGS ?= ""
 
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
+
+PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
+PACKAGECONFIG[openssl] = "--shared-openssl,,openssl"
 
 do_configure () {
   export LD="${CXX}"
   alias g++="${CXX}"
   GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
   ./configure 	--prefix="${prefix}" \
-		--without-snapshot --shared-openssl \
 		--dest-cpu="${@map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
-	 	--dest-os=linux ${ARCHFLAGS}
+		--dest-os=linux ${ARCHFLAGS} \
+		--without-snapshot \
+		${EXTRA_OECONF}
   unalias g++
 }
 

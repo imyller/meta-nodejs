@@ -1,9 +1,8 @@
-require nodejs4.inc
+require nodejs_4.inc
 require nodejs_iojs.inc
 
-INC_PR = "r2"
+INC_PR = "r3"
 
-LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=003f16759ef967194d594a5ac6490401"
 
 SRC_URI[src.md5sum] = "d4eaaa7c139f13fc0168d9b5fbe13a0b"
