@@ -1,10 +1,11 @@
 meta-nodejs
 ===========
-OpenEmbedded layer for latest stable [Node.js](https://nodejs.org/ "Node.js") and [io.js](https://iojs.org/ "io.js") releases. 
+
+OpenEmbedded layer for latest stable [Node.js](https://nodejs.org/ "Node.js") releases. 
 
 [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=imyller&url=https://github.com/imyller/meta-nodejs&title=meta-nodejs&language=&tags=github&category=software)
 
-## Node versions
+## Node.js versions
 
 Stable releases of Node.js:
  * `5.7`
@@ -23,27 +24,6 @@ Stable releases of Node.js:
  * `0.10`
  * `0.8`
 
-Stable releases of io.js:
- * `3.3`
- * `3.2`
- * `3.1`
- * `3.0`
- * `2.5`
- * `2.4`
- * `2.3`
- * `2.2`
- * `2.1`
- * `2.0`
- * `1.8`
- * `1.7`
- * `1.6`
- * `1.5`
- * `1.4`
- * `1.3`
- * `1.2`
- * `1.1`
- * `1.0`
-
 ## Available Packages
 
  * `nodejs`
@@ -51,10 +31,6 @@ Stable releases of io.js:
  * `nodejs-dtrace`
  * `nodejs-systemtap`
  * `nodejs-wafadmin` (only with Node.js `0.8`)
- * `iojs`
- * `iojs-npm`
- * `iojs-dtrace`
- * `iojs-systemtap`
 
 Installation
 ============
@@ -70,17 +46,6 @@ Layer installation varies depending on your OpenEmbedded distribution. These ins
 			${TOPDIR}/sources/meta-nodejs \
 		"
 	```
-  
-### Setting the preferred Node provider
-
-meta-nodejs ships with Node.js and io.js recipes, which both provide `node` binary and thus conflict with each other. It is recommended that you define the preferred provider of Node engine in your `local.conf`. For example:
-
-```bitbake
-PREFERRED_PROVIDER_node = "nodejs"
-PREFERRED_PROVIDER_node-native = "nodejs-native"
-```
-
-With preferred provider selected you can use package name `node` in your recipe `DEPENDS` and `RDEPENDS`.
 
 Usage
 =====
@@ -89,44 +54,17 @@ Usage
 
 To build latest stable Node.js package:
 
-If you have set `PREFERRED_PROVIDER_node`:
-```shell
-	bitbake node 	
-```
-or if you want to build Node.js:
 ```shell
 	bitbake nodejs
 ```
-or if you want to build io.js:
-```shell
-	bitbake iojs
-```
 
-#### Resolve build conflicts between `nodejs` and `iojs`
+### Node.js as a dependency
 
-If you have built both `nodejs` and `iojs` to same root fs, you can resolve the conflict by running:
+Add Node.js as a dependency in recipe with `RDEPENDS` (for runtime) or `DEPENDS` (for build):
 
-```shell
-	bitbake iojs nodejs iojs-native nodejs-native -c cleanall -f
-```
-
-### Node as a dependency
-
-Add Node.js or io.js as a dependency in recipe with `RDEPENDS` (for runtime) or `DEPENDS` (for build):
-
-```bitbake
-	DEPENDS += " node"			# Only if you have set the PREFERRED_PROVIDER_node	
-	RDEPENDS_${PN} += " node"	# Only if you have set the PREFERRED_PROVIDER_node	
-```
-or 
 ```bitbake
 	DEPENDS += " nodejs"
 	RDEPENDS_${PN} += " nodejs"
-```
-or 
-```bitbake
-	DEPENDS += " iojs"
-	RDEPENDS_${PN} += " iojs"
 ```
 
 ### `npm install` buildable recipes
@@ -136,7 +74,7 @@ Inherit `npm-install` build task classes in your recipe. This will automatically
 Bitbake classes 
 ===============
 
-`meta-nodejs` layer adds two new classes: `npm` and `npm-install`.
+`meta-nodejs` layer adds few Node.js related helper classes.
 
 ## `npm` class
 
