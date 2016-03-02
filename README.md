@@ -13,6 +13,10 @@ Stable releases of Node.js:
  * `0.10.x`
  * `0.8.x`
 
+### Node.js Long Term Support Release Schedule
+
+![LTS Schedule](https://github.com/nodejs/LTS/raw/master/schedule.png)
+
 Stable releases of io.js:
  * `3.3`
  * `3.2`
