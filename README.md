@@ -7,21 +7,15 @@ OpenEmbedded layer for latest stable [Node.js](https://nodejs.org/ "Node.js") an
 ## Node versions
 
 Stable releases of Node.js:
- * `5.7`
- * `5.6`
- * `5.5`
- * `5.4`
- * `5.3`
- * `5.2`
- * `5.1`
- * `5.0`
- * `4.3` (LTS)
- * `4.2`
- * `4.1`
- * `4.0`
- * `0.12` (LTS)
- * `0.10`
- * `0.8`
+ * `5.x`
+ * `4.x` (LTS)
+ * `0.12.x` (LTS)
+ * `0.10.x`
+ * `0.8.x`
+
+### Node.js Long Term Support Release Schedule
+
+![LTS Schedule](https://github.com/nodejs/LTS/raw/master/schedule.png)
 
 Stable releases of io.js:
  * `3.3`
