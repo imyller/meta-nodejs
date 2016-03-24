@@ -151,3 +151,64 @@ It defines the following functions:
 
 * `NPM_INSTALL_FLAGS`: Extra command line arguments for `npm` calls made in `do_configure` task
 * `GULP_TARGET`: The gulp target to run. (default: "")
+
+## `bower` class
+
+`bower` is a package manager for web applications front-end dependencies: [bower.io](http://bower.io/ "bower.io")
+
+`bower` class defines following functions:
+ 
+  * `oe_runbower`: call `bower` command line utility
+  
+### Variables
+
+ * `BOWER`: bower command line utility (default: `bower`)
+ * `BOWER_FLAGS`: Extra command line arguments for `bower` calls made by `oe_runbower()`
+
+## `bower-install` class
+
+Suppose a web application has front-end dependencies which are listed in the file
+bower.json. In this case the web application recipe can auto-install all those
+dependencies during yocto build by inheriting `bower-install` class.
+
+`bower-install` class inherits `bower` class and adds following build tasks:
+
+  * `bower_install`: runs `bower install` in source directory after `do_npm_dedupe` and before `do_install`
+
+Note that front-end dependencies are auto-installed into build directory. They have to be
+explicitely copied into target image in `do_install` or `do_install_append`. Here is a
+simple example of web application recipe with nodejs and bower dependencies:
+
+```bitbake
+SUMMARY = "simple web application with JS front-end dependencies listed in bower.json"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d690"
+
+SRCREV = "${AUTOREV}"
+
+PR = "r0"
+PV = "0.0.1+git${SRCPV}"
+
+SRC_URI = "git://webapp.example.org/test.git;branch=master;protocol=ssh"
+
+inherit npm-install bower-install
+
+S = "${WORKDIR}/git"
+
+do_install () {
+	install -d ${D}/www/test
+	install -d ${D}/www/test/public
+
+	install -m 0644 ${S}/simple.node.js ${D}/www/test/simple.node.js
+	install -m 0644 ${S}/public/index.html ${D}/www/test/public/index.html
+
+	cp -r ${S}/node_modules ${D}/www/test/
+	cp -r ${S}/public/bower_components ${D}/www/test/public/
+}
+
+```
+
+### Variables
+
+ * `BOWER_INSTALL`: Parameters for `bower install` command (such as specific package names)
+ * `BOWER_INSTALL_FLAGS`: Extra command line arguments for `bower` calls made in `bower_install` task 
