@@ -91,6 +91,7 @@ For example:
 
  * `NPM_FLAGS`: Extra command line arguments for `npm` calls made by `oe_runnpm()`
  * `NPM_ARCH`: Override npm target architecture (defaults to `TARGET_ARCH`)
+ * `NPM_REGISTRY`: override npm registry URL
 
 ## `npm-install` class
 
@@ -164,7 +165,8 @@ It defines the following functions:
 
  * `BOWER`: bower command line utility (default: `bower`)
  * `BOWER_FLAGS`: Extra command line arguments for `bower` calls made by `oe_runbower()`
-
+ * `BOWER_REGISTRY`: override Bower registry URL 
+ 
 ## `bower-install` class
 
 Suppose a web application has front-end dependencies which are listed in the file
@@ -191,19 +193,13 @@ PV = "0.0.1+git${SRCPV}"
 
 SRC_URI = "git://webapp.example.org/test.git;branch=master;protocol=ssh"
 
-inherit npm-install bower-install
+inherit bower-install
 
 S = "${WORKDIR}/git"
 
 do_install () {
-	install -d ${D}/www/test
 	install -d ${D}/www/test/public
-
-	install -m 0644 ${S}/simple.node.js ${D}/www/test/simple.node.js
-	install -m 0644 ${S}/public/index.html ${D}/www/test/public/index.html
-
-	cp -r ${S}/node_modules ${D}/www/test/
-	cp -r ${S}/public/bower_components ${D}/www/test/public/
+	cp -r ${S}/bower_components ${D}/www/test/public/
 }
 
 ```
