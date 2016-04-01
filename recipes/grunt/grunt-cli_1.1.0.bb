@@ -2,14 +2,16 @@ SUMMARY = "Grunt.js command line wrapper"
 HOMEPAGE = "http://gruntjs.com/"
 SECTION = "js/devel"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=d61056bfad54e10504adf913ab74eb18"
+LIC_FILES_CHKSUM = "file://LICENSE-MIT;md5=331c934843c71c28b2bf98046c03eb97"
 
 PACKAGE_ARCH = "all"
 
 SRC_URI = "https://github.com/gruntjs/grunt-cli/archive/v${PV}.tar.gz"
 
-SRC_URI[md5sum] = "96c13b018da56d1c822fa432a4110820"
-SRC_URI[sha256sum] = "bb291c97f5ac5dc3f549343436f64ff066a0138565e15c794b1636d37fdc4992"
+SRC_URI[md5sum] = "dfd3443d0c612523ef4870c25058d368"
+SRC_URI[sha256sum] = "c4f36b57629e8fe3d25ee312be721e85c5983af7d819c66f23b44a10faa37f76"
+
+INSANE_SKIP_${PN} += "file-rdeps"
 
 inherit npm-install-global
 
