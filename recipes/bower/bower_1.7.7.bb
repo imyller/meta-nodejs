@@ -13,4 +13,6 @@ SRC_URI[sha256sum] = "25ec165352f7bc1a185cabff31528fc149e666aa051edf920e1b99dcb6
 
 inherit npm-install-global
 
-RDEPENDS_${PN} += " bash"
+INSANE_SKIP_${PN} += "file-rdeps"
+
+BBCLASSEXTEND = "native nativesdk"
