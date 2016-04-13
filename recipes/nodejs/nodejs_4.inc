@@ -36,6 +36,8 @@ GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
 PACKAGECONFIG[openssl] = "--shared-openssl,,openssl"
 
+DISABLE_STATIC = ""
+
 do_configure () {
   export LD="${CXX}"
   alias g++="${CXX}"
