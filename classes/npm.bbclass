@@ -1,4 +1,5 @@
 DEPENDS += " node-native"
+inherit nodejs
 
 PACKAGE_DEBUG_SPLIT_STYLE = "debug-file-directory"
 
@@ -8,7 +9,7 @@ NPM_REGISTRY ?= "https://registry.npmjs.org/"
 
 NPM ?= "npm"
 NPM_CACHE_DIR = "${WORKDIR}/npm_cache"
-NPM_ARCH ?= "${TARGET_ARCH}"
+NPM_ARCH ?= "${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}"
 NPM_LD ?= "${CXX}"
 NPM_FLAGS ?= ""
 
@@ -34,7 +35,7 @@ oe_runnpm() {
 
 NPM_NATIVE ?= "npm"
 NPM_CACHE_DIR_NATIVE = "${WORKDIR}/npm_cache"
-NPM_ARCH_NATIVE ?= "${BUILD_ARCH}"
+NPM_ARCH_NATIVE ?= "${@nodejs_map_dest_cpu(d.getVar('BUILD_ARCH', True), d)}"
 NPM_LD_NATIVE ?= "${BUILD_CXX}"
 NPM_FLAGS_NATIVE ?= ""
 

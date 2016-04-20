@@ -19,13 +19,7 @@ S = "${WORKDIR}/node-v${PV}"
 # v8 errors out if you have set CCACHE
 CCACHE = ""
 
-def map_dest_cpu(target_arch, d):
-    import re
-    if   re.match('p(pc|owerpc)(|64)', target_arch): return 'ppc'
-    elif re.match('i.86$', target_arch): return 'ia32'
-    elif re.match('x86_64$', target_arch): return 'x64'
-    elif re.match('arm64$', target_arch): return 'arm'
-    return target_arch
+inherit nodejs
 
 ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)}"
 ARCHFLAGS ?= ""
@@ -38,7 +32,7 @@ do_configure () {
   GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
   ./configure 	--prefix="${prefix}" \
 		--without-snapshot --shared-openssl \
-		--dest-cpu="${@map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
+		--dest-cpu="${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 	 	--dest-os=linux ${ARCHFLAGS}
   unalias g++
 }
