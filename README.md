@@ -1,13 +1,11 @@
 meta-nodejs
 ===========
 
-OpenEmbedded layer for latest stable [Node.js](https://nodejs.org/ "Node.js") releases. 
+OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases. 
 
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=imyller&url=https://github.com/imyller/meta-nodejs&title=meta-nodejs&language=&tags=github&category=software)
+## Node.js releases
 
-## Node.js versions
-
-Stable releases of Node.js:
+ * `6.x` (Current)
  * `5.x`
  * `4.x` (LTS)
  * `0.12.x` (LTS)
