@@ -144,6 +144,8 @@ First it will do an `npm install` during the `do_configure` task to make sure al
 dependencies are available.
 Then it runs `gulp` with the default target during the `do_compile` task.
 
+The project being built should have a `devDependency` on `gulp` in its `package.json`.
+
 It defines the following functions:
 
   * `oe_rungulp`: call `gulp`
@@ -151,7 +153,8 @@ It defines the following functions:
 ### Variables
 
 * `NPM_INSTALL_FLAGS`: Extra command line arguments for `npm` calls made in `do_configure` task
-* `GULP_TARGET`: The gulp target to run. (default: "")
+* `GULP_TASKS`: The gulp task(s) to run. (default: "")
+* `GULP_OPTIONS`: Extra options to pass to gulp (e.g. `--production`). (default: "")
 
 ## `bower` class
 
