@@ -9,7 +9,7 @@ OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases.
  * `5.x`
  * `4.x` (LTS)
  * `0.12.x` (Maintenance)
- * `0.10.x`
+ * `0.10.x` (Maintenance)
  * `0.8.x`
 
 ### Node.js Long Term Support Release Schedule
