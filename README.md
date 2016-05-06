@@ -61,7 +61,7 @@ Add Node.js as a dependency in recipe with `RDEPENDS` (for runtime) or `DEPENDS`
 
 ### `npm install` buildable recipes
 
-Inherit `npm-install` build task classes in your recipe. This will automatically add `node` to your `RDEPENDS_${PN}` and `node-native` to `DEPENDS`.
+Inherit `npm-install` build task class in your recipe.
 
 Bitbake classes 
 ===============
