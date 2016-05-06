@@ -4,7 +4,7 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT"
 
 INC_PR ?= "r1"
-PR = "${INC_PR}.3"
+PR = "${INC_PR}.4"
 
 DEPENDS = "openssl"
 DEPENDS_class-native += " openssl-native"
@@ -19,7 +19,7 @@ S = "${WORKDIR}/node-v${PV}"
 # v8 errors out if you have set CCACHE
 CCACHE = ""
 
-inherit nodejs
+inherit nodejs-arch
 
 ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)}"
 ARCHFLAGS ?= ""

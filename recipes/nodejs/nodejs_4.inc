@@ -4,7 +4,7 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT"
 
 INC_PR = "r1"
-PR = "${INC_PR}.2"
+PR = "${INC_PR}.3"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
@@ -16,7 +16,7 @@ S = "${WORKDIR}/node-v${PV}"
 # v8 errors out if you have set CCACHE
 CCACHE = ""
 
-inherit nodejs
+inherit nodejs-arch
 
 ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '--with-arm-float-abi=hard', '--with-arm-float-abi=softfp', d)} \
                  ${@bb.utils.contains('TUNE_FEATURES', 'neon', '--with-arm-fpu=neon', \

@@ -1,4 +1,4 @@
-# helper utilities for building node
+# Helper utilities for building Node.js
 
 def nodejs_map_dest_cpu(target_arch, d):
     import re

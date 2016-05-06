@@ -1,5 +1,6 @@
 DEPENDS += " node-native"
-inherit nodejs
+
+inherit nodejs-arch
 
 PACKAGE_DEBUG_SPLIT_STYLE = "debug-file-directory"
 
