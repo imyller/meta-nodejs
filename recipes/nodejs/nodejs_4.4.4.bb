@@ -6,5 +6,5 @@ INC_PR = "r1"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=96aa1ac122c41f8c08a0683d4b2126b5"
 
-SRC_URI[src.md5sum] = "0f7feafa6a98af58fcd934c043ced0d5"
-SRC_URI[src.sha256sum] = "8e67b95721aab7bd721179da2fe5dd97f9acc1306c15c9712ee103bcd6381638"
+SRC_URI[src.md5sum] = "1a0f41618b8290a9e96a5dc5d53c7b9d"
+SRC_URI[src.sha256sum] = "53c694c203ee18e7cd393612be08c61ed6ab8b2a165260984a99c014d1741414"
