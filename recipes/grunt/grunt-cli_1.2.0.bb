@@ -8,8 +8,8 @@ PACKAGE_ARCH = "all"
 
 SRC_URI = "https://github.com/gruntjs/grunt-cli/archive/v${PV}.tar.gz"
 
-SRC_URI[md5sum] = "dfd3443d0c612523ef4870c25058d368"
-SRC_URI[sha256sum] = "c4f36b57629e8fe3d25ee312be721e85c5983af7d819c66f23b44a10faa37f76"
+SRC_URI[md5sum] = "b5b4fedca4729efd88acf0606cbe9f89"
+SRC_URI[sha256sum] = "02fca1e10d8158cb6ee7a450d23dd11cd9bb867e994466d973a851315050595a"
 
 INSANE_SKIP_${PN} += "file-rdeps"
 
