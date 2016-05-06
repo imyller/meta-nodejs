@@ -8,8 +8,8 @@ PACKAGE_ARCH = "all"
 
 SRC_URI = "https://github.com/bower/bower/archive/v${PV}.tar.gz"
 
-SRC_URI[md5sum] = "0e5d771849b2f047dde428a1722b74ff"
-SRC_URI[sha256sum] = "25ec165352f7bc1a185cabff31528fc149e666aa051edf920e1b99dcb68cbfbf"
+SRC_URI[md5sum] = "d5b0e85eb23ee6721d1ba623f162c6a7"
+SRC_URI[sha256sum] = "55ff05b6e86a767c04ef5bf3408438bee565862070e13ee0b327af5b76e446f8"
 
 inherit npm-install-global
 
