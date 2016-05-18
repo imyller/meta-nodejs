@@ -68,9 +68,9 @@ Bitbake classes
 
 `meta-nodejs` layer adds few Node.js related helper classes.
 
-## `npm` class
+## `npm-base` class
 
-`npm` class defines following functions:
+`npm-base` class defines following functions:
  
   * `oe_runnpm`: call cross-compiling `npm`
   * `oe_runnpm_native`: call native-compiling `npm`
@@ -78,7 +78,7 @@ Bitbake classes
 For example:
 
 ```bitbake
-  inherit npm
+  inherit npm-base
 
   do_install() {
 	oe_runnpm install     # Installs dependencies defined in package.json
@@ -93,7 +93,7 @@ For example:
 
 ## `npm-install` class
 
-`npm-install` class inherits `npm` class and adds following build tasks (listed in their run order):
+`npm-install` class inherits `npm-base` class and adds following build tasks (listed in their run order):
 
   * `npm_install`: runs `npm install` in source directory
   * `npm_shrinkwrap`: runs `npm shrinkwrap` in source directory
@@ -112,7 +112,7 @@ You can disable one or more of these build tasks in the recipe with `do_<tasknam
 
 ## `npm-install-global` class
 
-`npm-install-global` class inherits `npm` class and installs the selected package globally.
+`npm-install-global` class inherits `npm-base` class and installs the selected package globally.
 This is done in the `do_install` task of the class.
 
 ### Variables

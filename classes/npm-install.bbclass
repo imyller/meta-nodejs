@@ -1,4 +1,4 @@
-inherit npm
+inherit npm-base
 
 B="${S}"
 
