@@ -4,7 +4,7 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT"
 
 INC_PR ?= "r1"
-PR = "${INC_PR}.4"
+PR = "${INC_PR}.5"
 
 DEPENDS = "openssl"
 DEPENDS_class-native += " openssl-native"
@@ -40,30 +40,30 @@ do_configure () {
 do_compile () {
   export LD="${CXX}"
   alias g++="${CXX}"
-  make ${PARALLEL_MAKE} BUILDTYPE=Release
+  oe_runmake BUILDTYPE=Release
   unalias g++
 }
 
 do_install () {
-  oe_runmake DESTDIR=${D} install
+  oe_runmake install DESTDIR="${D}"
 }
 
 do_install_append_class-native() {
   # make sure we use node from PATH instead of absolute path to sysroot
-  sed "1s^.*^#\!/usr/bin/env node^g" -i ${D}${libdir}/node_modules/npm/bin/npm-cli.js
+  sed "1s^.*^#\!/usr/bin/env node^g" -i ${D}${exec_prefix}/lib/node_modules/npm/bin/npm-cli.js
 }
 
 do_install_append_class-target() {
   # make sure we use node from PATH instead of absolute path to sysroot
-  sed "1s^.*^#\!${bindir}/env node^g" -i ${D}${libdir}/node_modules/npm/bin/npm-cli.js
+  sed "1s^.*^#\!${bindir}/env node^g" -i ${D}${exec_prefix}/lib/node_modules/npm/bin/npm-cli.js
 }
 
 PACKAGES =+ "${PN}-npm"
-FILES_${PN}-npm = "${libdir}/node_modules ${bindir}/npm"
+FILES_${PN}-npm = "${exec_prefix}/lib/node_modules ${bindir}/npm"
 RDEPENDS_${PN}-npm = "bash python-compiler python-shell python-datetime python-subprocess python-multiprocessing python-crypt python-textutils python-netclient python-misc"
 
 PACKAGES =+ "${PN}-dtrace"
-FILES_${PN}-dtrace = "${libdir}/dtrace"
+FILES_${PN}-dtrace = "${exec_prefix}/lib/dtrace"
 
 PACKAGES =+ "${PN}-systemtap"
 FILES_${PN}-systemtap = "${datadir}/systemtap"
