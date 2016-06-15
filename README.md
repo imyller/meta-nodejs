@@ -12,8 +12,6 @@ OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases.
  * ![Maintenance 0.10](https://img.shields.io/badge/Node.js%20Maintenance-0.10.45-lightgray.svg)
  * ![Legacy 0.8](https://img.shields.io/badge/Node.js%20Legacy-0.8.28-lightgrey.svg)
 
-### Node.js Long Term Support Release Schedule
-
 ![LTS Schedule](https://github.com/nodejs/LTS/raw/master/schedule.png)
 
 ## Available Packages
