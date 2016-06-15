@@ -209,3 +209,31 @@ do_install () {
 
  * `BOWER_INSTALL`: Parameters for `bower install` command (such as specific package names)
  * `BOWER_INSTALL_FLAGS`: Extra command line arguments for `bower` calls made in `bower_install` task 
+
+## `typings` class
+
+`typings` is a TypeScript definition manager: [typings](https://github.com/typings/typings/ "typings")
+
+`typings` class defines following functions:
+ 
+  * `oe_runtypings`: call `typings` command line utility
+  
+### Variables
+
+ * `TYPINGS`: bower command line utility (default: `typings`)
+ * `TYPINGS_FLAGS`: Extra command line arguments for `typings` calls made by `oe_runtypings()`
+
+## `typings-install` class
+
+Suppose a web application has TypeScript dependencies which are listed in the file
+typings.json. In this case the web application recipe can auto-install all those
+dependencies during yocto build by inheriting `typings-install` class.
+
+`typings-install` class inherits `typings` class and adds following build tasks:
+
+  * `typings_install`: runs `typings install` in source directory after `do_configure` and before `do_compile`
+
+### Variables
+
+ * `TYPINGS_INSTALL`: Parameters for `typings install` command (such as specific package names)
+ * `TYPINGS_INSTALL_FLAGS`: Extra command line arguments for `typings` calls made in `typings_install` task 
