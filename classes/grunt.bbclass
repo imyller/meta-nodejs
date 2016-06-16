@@ -6,11 +6,12 @@ DEPENDS += " node-native grunt-cli-native"
 
 GRUNT ?= "grunt"
 GRUNT_TARGET ?= ""
+EXTRA_OEGRUNT ?= ""
 
 oe_rungrunt() {
-	bbnote ${GRUNT} --verbose "$@"
+	bbnote ${GRUNT} ${EXTRA_OEGRUNT} --verbose "$@"
 
-	${GRUNT} --verbose "$@" || die "oe_rungrunt failed"
+	${GRUNT} ${EXTRA_OEGRUNT} --verbose "$@" || die "oe_rungrunt failed"
 }
 
 do_configure() {
