@@ -3,6 +3,8 @@ meta-nodejs
 
 OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases. 
 
+:information_source: *As an official extension of this layer, installing [`meta-nodejs-contrib`](https://github.com/imyller/meta-nodejs-contrib) is highly recommended for community contributed Node.js based package recipes and Bitbake helper classes.*
+
 ## Node.js releases
 
  * ![Current 6](https://img.shields.io/badge/Node.js%20Current-6.2.1-green.svg)
@@ -36,8 +38,12 @@ Layer installation varies depending on your OpenEmbedded distribution. These ins
 			${TOPDIR}/sources/meta-nodejs \
 		"
 	```
+	
+## Recommended layers
 
-## Dependencies
+As an official extension of this layer, installing [`meta-nodejs-contrib`](https://github.com/imyller/meta-nodejs-contrib) is highly recommended for community contributed Node.js based package recipes and Bitbake helper classes.
+
+## Layer dependencies
 
 `meta-nodejs` depends on following layers:
 
