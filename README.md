@@ -14,6 +14,12 @@ OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases.
 
 ![LTS Schedule](https://github.com/nodejs/LTS/raw/master/schedule.png)
 
+## Dependencies
+
+`meta-nodejs` depends on following layers:
+
+ * [`openembedded-core`](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/)
+
 ## Available Packages
 
  * `nodejs`
