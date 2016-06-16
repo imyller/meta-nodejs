@@ -1,8 +1,8 @@
-meta-nodejs
+meta-nodejs <img src="https://github.com/nodejs/nodejs.org/raw/master/static/images/logos/nodejs-new-black.png" width="128" align="right">
 ===========
 
-OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases. 
-
+OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases.
+ 
 :information_source: *As an official extension of this layer, installing [`meta-nodejs-contrib`](https://github.com/imyller/meta-nodejs-contrib) is highly recommended for community contributed Node.js based package recipes and Bitbake helper classes.*
 
 ## Node.js releases
