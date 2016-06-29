@@ -8,7 +8,7 @@ COMPATIBLE_MACHINE_armv5 = "(!.*armv5).*"
 COMPATIBLE_MACHINE_mips64 = "(!.*mips64).*"
 
 INC_PR = "r1"
-PR = "${INC_PR}.5"
+PR = "${INC_PR}.6"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
@@ -39,7 +39,7 @@ DISABLE_STATIC = ""
 do_configure () {
   export LD="${CXX}"
   GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
-  ./configure 	--prefix="${prefix}" \
+  ./configure	--prefix="${prefix}" \
 		--dest-cpu="${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 		--dest-os=linux ${ARCHFLAGS} \
 		--without-snapshot \
@@ -75,5 +75,8 @@ FILES_${PN}-dtrace = "${exec_prefix}/lib/dtrace"
 
 PACKAGES =+ "${PN}-systemtap"
 FILES_${PN}-systemtap = "${datadir}/systemtap"
+
+INSANE_SKIP_${PN} += "file-rdeps"
+INSANE_SKIP_${PN}-dbg += "host-user-contaminated"
 
 BBCLASSEXTEND = "native"

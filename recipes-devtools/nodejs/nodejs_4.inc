@@ -4,7 +4,7 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT"
 
 INC_PR = "r1"
-PR = "${INC_PR}.4"
+PR = "${INC_PR}.5"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
@@ -36,7 +36,7 @@ do_configure () {
   export LD="${CXX}"
   alias g++="${CXX}"
   GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
-  ./configure 	--prefix="${prefix}" \
+  ./configure	--prefix="${prefix}" \
 		--dest-cpu="${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 		--dest-os=linux ${ARCHFLAGS} \
 		--without-snapshot \
@@ -71,6 +71,10 @@ PACKAGES =+ "${PN}-dtrace"
 FILES_${PN}-dtrace = "${exec_prefix}/lib/dtrace"
 
 PACKAGES =+ "${PN}-systemtap"
+
 FILES_${PN}-systemtap = "${datadir}/systemtap"
+
+INSANE_SKIP_${PN} += "file-rdeps"
+INSANE_SKIP_${PN}-dbg += "host-user-contaminated"
 
 BBCLASSEXTEND = "native"
