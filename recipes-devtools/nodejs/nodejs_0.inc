@@ -4,7 +4,7 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT"
 
 INC_PR ?= "r1"
-PR = "${INC_PR}.5"
+PR = "${INC_PR}.6"
 
 DEPENDS = "openssl"
 DEPENDS_class-native += " openssl-native"
@@ -30,10 +30,10 @@ do_configure () {
   export LD="${CXX}"
   alias g++="${CXX}"
   GYP_DEFINES="${GYP_DEFINES}" export GYP_DEFINES
-  ./configure 	--prefix="${prefix}" \
+  ./configure	--prefix="${prefix}" \
 		--without-snapshot --shared-openssl \
 		--dest-cpu="${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
-	 	--dest-os=linux ${ARCHFLAGS}
+		--dest-os=linux ${ARCHFLAGS}
   unalias g++
 }
 
@@ -67,5 +67,8 @@ FILES_${PN}-dtrace = "${exec_prefix}/lib/dtrace"
 
 PACKAGES =+ "${PN}-systemtap"
 FILES_${PN}-systemtap = "${datadir}/systemtap"
+
+INSANE_SKIP_${PN} += "file-rdeps"
+INSANE_SKIP_${PN}-dbg += "host-user-contaminated"
 
 BBCLASSEXTEND = "native"
