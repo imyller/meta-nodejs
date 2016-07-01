@@ -15,3 +15,8 @@ do_install() {
 }
 
 FILES_${PN} += "${prefix}"
+
+#
+# npm causes unavoidable host-user-contaminated QA warnings for debug packages
+#
+INSANE_SKIP_${PN}-dbg += " host-user-contaminated"
