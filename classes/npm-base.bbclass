@@ -18,17 +18,23 @@ NPM_FLAGS ?= ""
 
 oe_runnpm() {
 
+	if [ "${NPM_ARCH}" != "allarch" ]; then
+		ARCH_FLAGS="--arch=${NPM_ARCH} --target_arch=${NPM_ARCH}"
+	else
+		ARCH_FLAGS=""
+	fi
+
 	export NPM_CONFIG_CACHE="${NPM_CACHE_DIR}"
 
 	bbnote NPM target architecture: ${NPM_ARCH}
 	bbnote NPM cache directory: ${NPM_CONFIG_CACHE}
 	bbnote NPM registry: ${NPM_REGISTRY}
 
-	bbnote ${NPM} --registry=${NPM_REGISTRY} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@"
+	bbnote ${NPM} --registry=${NPM_REGISTRY} ${ARCH_FLAGS} ${NPM_FLAGS} "$@"
 
 	export JOBS=${@oe.utils.cpu_count()}
 
-	LD="${NPM_LD}" ${NPM} --registry=${NPM_REGISTRY} --arch=${NPM_ARCH} --target_arch=${NPM_ARCH} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
+	LD="${NPM_LD}" ${NPM} --registry=${NPM_REGISTRY} ${ARCH_FLAGS} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
 
 }
 
@@ -42,16 +48,22 @@ NPM_FLAGS_NATIVE ?= ""
 
 oe_runnpm_native() {
 
+	if [ "${NPM_ARCH_NATIVE}" != "allarch" ]; then
+                ARCH_FLAGS="--arch=${NPM_ARCH_NATIVE} --target_arch=${NPM_ARCH_NATIVE}"
+        else
+                ARCH_FLAGS=""
+        fi
+
 	export NPM_CONFIG_CACHE="${NPM_CACHE_DIR_NATIVE}"
 
 	bbnote NPM native architecture: ${NPM_ARCH_NATIVE}
 	bbnote NPM cache directory: ${NPM_CONFIG_CACHE}
 	bbnote NPM registry: ${NPM_REGISTRY}
 
-	bbnote ${NPM_NATIVE} --arch=${NPM_ARCH_NATIVE} --target_arch=${NPM_ARCH_NATIVE} ${NPM_FLAGS_NATIVE} "$@"
+	bbnote ${NPM_NATIVE} --registry=${NPM_REGISTRY} ${ARCH_FLAGS} ${NPM_FLAGS_NATIVE} "$@"
 
 	export JOBS=${@oe.utils.cpu_count()}
 
-	LD="${NPM_LD_NATIVE}" ${NPM_NATIVE} --registry=${NPM_REGISTRY} --arch=${NPM_ARCH_NATIVE} --target_arch=${NPM_ARCH_NATIVE} ${NPM_FLAGS_NATIVE} "$@" || die "oe_runnpm_native failed"
+	LD="${NPM_LD_NATIVE}" ${NPM_NATIVE} --registry=${NPM_REGISTRY} ${ARCH_FLAGS} ${NPM_FLAGS_NATIVE} "$@" || die "oe_runnpm_native failed"
 
 }
