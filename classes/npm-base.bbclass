@@ -14,6 +14,8 @@ NPM_ARCH ?= "${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}"
 NPM_LD ?= "${CXX}"
 NPM_FLAGS ?= ""
 
+NPM_FLAGS_append_class-nativesdk = " --unsafe-perm"
+
 # Target npm
 
 oe_runnpm() {
@@ -45,6 +47,8 @@ NPM_CACHE_DIR_NATIVE = "${WORKDIR}/npm_cache"
 NPM_ARCH_NATIVE ?= "${@nodejs_map_dest_cpu(d.getVar('BUILD_ARCH', True), d)}"
 NPM_LD_NATIVE ?= "${BUILD_CXX}"
 NPM_FLAGS_NATIVE ?= ""
+
+NPM_FLAGS_NATIVE_append_class-nativesdk = " --unsafe-perm"
 
 oe_runnpm_native() {
 
