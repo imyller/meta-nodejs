@@ -4,7 +4,7 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT"
 
 INC_PR = "r1"
-PR = "${INC_PR}.5"
+PR = "${INC_PR}.6"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
@@ -58,6 +58,12 @@ do_install_append_class-native() {
   sed "1s^.*^#\!/usr/bin/env node^g" -i ${D}${exec_prefix}/lib/node_modules/npm/bin/npm-cli.js
 }
 
+do_install_append_class-nativesdk() {
+  # make sure we use node from PATH instead of absolute path to sysroot
+  sed "1s^.*^#\!/usr/bin/env node^g" -i ${D}${exec_prefix}/lib/node_modules/npm/bin/npm-cli.js
+  sed "1s^.*^#\!/usr/bin/env python^g" -i ${D}${exec_prefix}/lib/node_modules/npm/node_modules/node-gyp/gyp/samples/samples
+}
+
 do_install_append_class-target() {
   # make sure we use node from PATH instead of absolute path to sysroot
   sed "1s^.*^#\!${bindir}/env node^g" -i ${D}${exec_prefix}/lib/node_modules/npm/bin/npm-cli.js
@@ -77,4 +83,4 @@ FILES_${PN}-systemtap = "${datadir}/systemtap"
 INSANE_SKIP_${PN} += "file-rdeps"
 INSANE_SKIP_${PN}-dbg += "host-user-contaminated"
 
-BBCLASSEXTEND = "native"
+BBCLASSEXTEND = "native nativesdk"
