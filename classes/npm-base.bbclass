@@ -36,6 +36,9 @@ oe_runnpm() {
 
 	export JOBS=${@oe.utils.cpu_count()}
 
+	export http_proxy="${http_proxy}"
+	export https_proxy="${https_proxy}"
+
 	LD="${NPM_LD}" ${NPM} --registry=${NPM_REGISTRY} ${ARCH_FLAGS} ${NPM_FLAGS} "$@" || die "oe_runnpm failed"
 
 }
@@ -67,6 +70,9 @@ oe_runnpm_native() {
 	bbnote ${NPM_NATIVE} --registry=${NPM_REGISTRY} ${ARCH_FLAGS} ${NPM_FLAGS_NATIVE} "$@"
 
 	export JOBS=${@oe.utils.cpu_count()}
+
+	export http_proxy="${http_proxy}"
+	export https_proxy="${https_proxy}"
 
 	LD="${NPM_LD_NATIVE}" ${NPM_NATIVE} --registry=${NPM_REGISTRY} ${ARCH_FLAGS} ${NPM_FLAGS_NATIVE} "$@" || die "oe_runnpm_native failed"
 
