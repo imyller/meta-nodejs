@@ -35,10 +35,10 @@ oe_runnpm() {
 	echo "/license-destdir/" >> "${NPM_IGNORE}"
 	echo "/image/" >> "${NPM_IGNORE}"
 	echo "/patches/" >> "${NPM_IGNORE}"
-	echo ".npmignore" >> "${NPM_IGNORE}
+	echo ".npmignore" >> "${NPM_IGNORE}"
 	echo "/.*/" >> "${NPM_IGNORE}"
 
-	mkdir -p ${NPM_HOME_DIR}
+	mkdir -p "${NPM_HOME_DIR}"
 
 	export NPM_CONFIG_CACHE="${NPM_CACHE_DIR}"
 	export NPM_CONFIG_DEV="false"
@@ -93,7 +93,7 @@ oe_runnpm_native() {
 	echo ".npmignore" >> "${NPM_IGNORE}"
 	echo "/.*/" >> "${NPM_IGNORE}"
 
-	mkdir -p ${NPM_HOME_DIR_NATIVE}
+	mkdir -p "${NPM_HOME_DIR_NATIVE}"
 
 	export NPM_CONFIG_CACHE="${NPM_CACHE_DIR_NATIVE}"
 	export NPM_CONFIG_DEV="false"
