@@ -16,6 +16,19 @@ OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases.
 
 ![LTS Schedule](https://github.com/nodejs/LTS/raw/master/schedule.png)
 
+## Dependencies
+
+`meta-nodejs` depends on following layers:
+
+ * [`openembedded-core`](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/)
+
+### Node.js v7 specific dependencies
+
+Node.js v7 ships with V8 v5.4 that requires native (host) compilation of additional build tools (`mkpeephole`, `mksnapshot`).
+Building these tools currently requires 32-bit native toolchain. Following packages should be installed in the build host:
+
+ * `g++-multilib`
+
 ## Available Packages
 
  * `nodejs`
@@ -42,12 +55,6 @@ Layer installation varies depending on your OpenEmbedded distribution. These ins
 ## Recommended layers
 
 As an official extension of this layer, installing [`meta-nodejs-contrib`](https://github.com/imyller/meta-nodejs-contrib) is highly recommended for community contributed Node.js based package recipes and Bitbake helper classes.
-
-## Layer dependencies
-
-`meta-nodejs` depends on following layers:
-
- * [`openembedded-core`](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/)
 
 Usage
 =====
