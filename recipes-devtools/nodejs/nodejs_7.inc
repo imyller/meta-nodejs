@@ -33,6 +33,8 @@ GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 
 PACKAGECONFIG ??= ""
 
+PACKAGECONFIG[zlib] = "--shared-zlib,,zlib,"
+PACKAGECONFIG[openssl] = "--shared-openssl,,openssl,"
 PACKAGECONFIG[v8-inspector] = ",--without-inspector,,"
 
 DISABLE_STATIC = ""
