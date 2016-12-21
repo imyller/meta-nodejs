@@ -6,14 +6,17 @@ NPM_INSTALL ?= ""
 NPM_INSTALL_FLAGS ?= ""
 
 do_npm_install() {
+	cd ${S}
 	oe_runnpm ${NPM_INSTALL_FLAGS} install ${NPM_INSTALL}
 }
 
 do_npm_shrinkwrap() {
+	cd ${S}
 	oe_runnpm shrinkwrap
 }
 
 do_npm_dedupe() {
+	cd ${S}
 	oe_runnpm dedupe
 }
 
