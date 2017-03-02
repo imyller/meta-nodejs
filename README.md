@@ -7,7 +7,7 @@ OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases.
 
 ## Node.js releases
 
- * ![Current 7](https://img.shields.io/badge/Node.js%20Current-7.5.0-green.svg)
+ * ![Current 7](https://img.shields.io/badge/Node.js%20Current-7.6.0-green.svg)
  * ![LTS 6](https://img.shields.io/badge/Node.js%20LTS-6.10.0-blue.svg)
  * ![LTS 4](https://img.shields.io/badge/Node.js%20LTS-4.8.0-blue.svg)
  * ![Maintenance 0.12](https://img.shields.io/badge/Node.js%20Maintenance-0.12.18-lightgray.svg)
@@ -24,7 +24,7 @@ OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases.
 
 ### Node.js v7 specific dependencies
 
-Node.js v7 ships with V8 v5.4 that requires native (host) compilation of additional build tools (`mkpeephole`, `mksnapshot`).
+Node.js v7 ships with V8 v5.5 that requires native (host) compilation of additional build tools (`mkpeephole`, `mksnapshot`).
 Building these tools for 32-bit targets (e.g. Arm) also requires 32-bit native toolchain.
 
 In this case, following package should be installed in the build host:
