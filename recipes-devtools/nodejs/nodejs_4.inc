@@ -27,6 +27,8 @@ ARCHFLAGS ?= ""
 
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 
+PACKAGECONFIG ??= "zlib openssl"
+
 PACKAGECONFIG[zlib] = "--shared-zlib,,zlib"
 PACKAGECONFIG[openssl] = "--shared-openssl,,openssl"
 
