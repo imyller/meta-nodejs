@@ -40,7 +40,7 @@ do_configure () {
 		--dest-cpu="${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 		--dest-os=linux ${ARCHFLAGS} \
 		--without-snapshot \
-		${EXTRA_OECONF}
+		${PACKAGECONFIG_CONFARGS}
   unalias g++
 }
 

@@ -50,7 +50,7 @@ do_configure () {
 		--dest-cpu="${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 		--dest-os=linux ${ARCHFLAGS} \
 		--with-intl=none \
-		${EXTRA_OECONF}
+		${PACKAGECONFIG_CONFARGS}
 }
 
 do_compile () {

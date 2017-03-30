@@ -47,7 +47,7 @@ do_configure () {
 		--dest-os=linux ${ARCHFLAGS} \
 		--without-snapshot \
 		--with-intl=none \
-		${EXTRA_OECONF}
+		${PACKAGECONFIG_CONFARGS}
 }
 
 do_compile () {
