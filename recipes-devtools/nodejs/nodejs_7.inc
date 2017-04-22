@@ -8,7 +8,7 @@ COMPATIBLE_MACHINE_armv4 = "(!.*armv4).*"
 COMPATIBLE_MACHINE_mips64 = "(!.*mips64).*"
 
 INC_PR = "r1"
-PR = "${INC_PR}.1"
+PR = "${INC_PR}.2"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
@@ -50,6 +50,7 @@ do_configure () {
 		--dest-cpu="${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 		--dest-os=linux ${ARCHFLAGS} \
 		--with-intl=none \
+		--cross-compiling \
 		${PACKAGECONFIG_CONFARGS}
 }
 
