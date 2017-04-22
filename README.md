@@ -22,14 +22,22 @@ OpenEmbedded layer for latest [Node.js](https://nodejs.org/ "Node.js") releases.
 
  * [`openembedded-core`](http://layers.openembedded.org/layerindex/branch/master/layer/openembedded-core/)
 
-### Node.js v7 specific dependencies
+### Cross-compiling for 32-bit target on 64-bit host
 
-Node.js v7 ships with V8 v5.5 that requires native (host) compilation of additional build tools (`mkpeephole`, `mksnapshot`).
-Building these tools for 32-bit targets (e.g. Arm) also requires 32-bit native toolchain.
+Node.js v7+ ships with V8 v5.5+ that requires native (host) compilation of some internal build tools (`mkpeephole` and `mksnapshot`).
+These internal tools must be built with "bitness" matching the cross-compilation target (eg. 32-bit ARM).
 
-In this case, following package should be installed in the build host:
+If you encounter build errors related to `mkpeephole` or `mksnapshot` you most likely need to install appropriate multilib compilers and libraries to to your host system.
 
- * `g++-multilib`
+#### Example
+
+Prerequisites for compiling for 32-bit ARM with x86_64 Ubuntu 16.04 Xenial (or newer):
+
+```
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install g++-multilib libssl-dev:i386 libcrypto++-dev:i386 zlib1g-dev:i386
+```
 
 ## Available Packages
 
