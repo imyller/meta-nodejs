@@ -4,12 +4,13 @@ HOMEPAGE = "http://nodejs.org"
 LICENSE = "MIT"
 
 INC_PR = "r1"
-PR = "${INC_PR}.6"
+PR = "${INC_PR}.7"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
 
-SRC_URI = "https://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz;name=src"
+SRC_URI = "https://nodejs.org/dist/v${PV}/node-v${PV}.tar.gz;name=src \
+           file://no-registry.patch"
 
 S = "${WORKDIR}/node-v${PV}"
 
