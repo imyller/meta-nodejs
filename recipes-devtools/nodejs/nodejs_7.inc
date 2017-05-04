@@ -8,7 +8,7 @@ COMPATIBLE_MACHINE_armv4 = "(!.*armv4).*"
 COMPATIBLE_MACHINE_mips64 = "(!.*mips64).*"
 
 INC_PR = "r1"
-PR = "${INC_PR}.3"
+PR = "${INC_PR}.4"
 
 PROVIDES = "node"
 RPROVIDES_${PN} = "node"
@@ -29,6 +29,9 @@ ARCHFLAGS_arm = "${@bb.utils.contains('TUNE_FEATURES', 'callconvention-hard', '-
                     bb.utils.contains('TUNE_FEATURES', 'vfpv3', '--with-arm-fpu=vfpv3', \
                     '--with-arm-fpu=vfp', d), d), d)}"
 ARCHFLAGS ?= ""
+
+CROSSCONF = "--cross-compiling"
+CROSSCONF_virtclass-native ="--no-cross-compiling"
 
 GYP_DEFINES_append_mipsel = " mips_arch_variant='r1' "
 
@@ -51,7 +54,7 @@ do_configure () {
 		--dest-cpu="${@nodejs_map_dest_cpu(d.getVar('TARGET_ARCH', True), d)}" \
 		--dest-os=linux ${ARCHFLAGS} \
 		--with-intl=none \
-		--cross-compiling \
+		${CROSSCONF} \
 		${PACKAGECONFIG_CONFARGS}
 }
 
